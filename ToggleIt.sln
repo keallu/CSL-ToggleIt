@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ToggleIt", "ToggleIt\ToggleIt.csproj", "{A949D42A-84C3-4C54-AC17-6CE2EE59A26D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A949D42A-84C3-4C54-AC17-6CE2EE59A26D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A949D42A-84C3-4C54-AC17-6CE2EE59A26D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A949D42A-84C3-4C54-AC17-6CE2EE59A26D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A949D42A-84C3-4C54-AC17-6CE2EE59A26D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {40E0D483-8535-4769-B09D-EB5A1B94B995}
+	EndGlobalSection
+EndGlobal
