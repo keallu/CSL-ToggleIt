@@ -1,6 +1,5 @@
 ﻿using Harmony;
 using ICities;
-using System;
 using System.Reflection;
 
 namespace ToggleIt
@@ -22,8 +21,9 @@ namespace ToggleIt
             harmony.UnpatchAll();
         }
 
-        private static readonly string[] KeymappingLabels =
+        public static readonly string[] ToggleLabels =
         {
+            "None",
             "Notification Icons",
             "District Names",
             "District Icons",
@@ -32,72 +32,148 @@ namespace ToggleIt
             "Move It! Tool Colors"
         };
 
-        private static readonly string[] KeymappingValues =
+        public static readonly int[] ToggleValues =
         {
-            "Notification Icons",
-            "District Names",
-            "District Icons",
-            "Line Borders",
-            "Default Tool Colors",
-            "Move It! Tool Colors"
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+        };
+
+        public static readonly string[] KeymappingLabels =
+        {
+            "None",
+            "LEFT CTRL + H",
+            "LEFT CTRL + I",
+            "LEFT CTRL + J",
+            "LEFT CTRL + K",
+            "LEFT CTRL + L",
+            "LEFT CTRL + M"
+        };
+
+        public static readonly int[] KeymappingValues =
+        {
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
         };
 
         public void OnSettingsUI(UIHelperBase helper)
         {
             UIHelperBase group;
-            int selectedIndex;
+            bool selected;
+            int selectedValue;
 
             group = helper.AddGroup(Name);
 
-            selectedIndex = GetSelectedOptionIndex(KeymappingValues, ModConfig.Instance.Keymapping1);
-            group.AddDropdown("LEFT CTRL + H", KeymappingLabels, selectedIndex, sel =>
+            selected = ModConfig.Instance.ShowTogglePanel;
+            group.AddCheckbox("Show Toggle Panel", selected, sel =>
             {
-                ModConfig.Instance.Keymapping1 = KeymappingValues[sel];
+                ModConfig.Instance.ShowTogglePanel = sel;
                 ModConfig.Instance.Save();
             });
 
-            selectedIndex = GetSelectedOptionIndex(KeymappingValues, ModConfig.Instance.Keymapping2);
-            group.AddDropdown("LEFT CTRL + I", KeymappingLabels, selectedIndex, sel =>
+            group.AddSpace(10);
+
+            group.AddButton("Reset Positioning of Toggle Panel", () =>
             {
-                ModConfig.Instance.Keymapping2 = KeymappingValues[sel];
+                ToggleProperties.Instance.ResetPanelPosition();
+            });
+
+            group = helper.AddGroup("Toggles");
+
+            selectedValue = ModConfig.Instance.Toggles[0];
+            group.AddDropdown("Toggle A", ToggleLabels, selectedValue, sel =>
+            {
+                ModConfig.Instance.Toggles[0] = ToggleValues[sel];
                 ModConfig.Instance.Save();
             });
 
-            selectedIndex = GetSelectedOptionIndex(KeymappingValues, ModConfig.Instance.Keymapping3);
-            group.AddDropdown("LEFT CTRL + J", KeymappingLabels, selectedIndex, sel =>
+            selectedValue = ModConfig.Instance.Toggles[1];
+            group.AddDropdown("Toggle B", ToggleLabels, selectedValue, sel =>
             {
-                ModConfig.Instance.Keymapping3 = KeymappingValues[sel];
+                ModConfig.Instance.Toggles[1] = ToggleValues[sel];
                 ModConfig.Instance.Save();
             });
 
-            selectedIndex = GetSelectedOptionIndex(KeymappingValues, ModConfig.Instance.Keymapping4);
-            group.AddDropdown("LEFT CTRL + K", KeymappingLabels, selectedIndex, sel =>
+            selectedValue = ModConfig.Instance.Toggles[2];
+            group.AddDropdown("Toggle C", ToggleLabels, selectedValue, sel =>
             {
-                ModConfig.Instance.Keymapping4 = KeymappingValues[sel];
+                ModConfig.Instance.Toggles[2] = ToggleValues[sel];
                 ModConfig.Instance.Save();
             });
 
-            selectedIndex = GetSelectedOptionIndex(KeymappingValues, ModConfig.Instance.Keymapping5);
-            group.AddDropdown("LEFT CTRL + L", KeymappingLabels, selectedIndex, sel =>
+            selectedValue = ModConfig.Instance.Toggles[3];
+            group.AddDropdown("Toggle D", ToggleLabels, selectedValue, sel =>
             {
-                ModConfig.Instance.Keymapping5 = KeymappingValues[sel];
+                ModConfig.Instance.Toggles[3] = ToggleValues[sel];
                 ModConfig.Instance.Save();
             });
 
-            selectedIndex = GetSelectedOptionIndex(KeymappingValues, ModConfig.Instance.Keymapping6);
-            group.AddDropdown("LEFT CTRL + M", KeymappingLabels, selectedIndex, sel =>
+            selectedValue = ModConfig.Instance.Toggles[4];
+            group.AddDropdown("Toggle E", ToggleLabels, selectedValue, sel =>
             {
-                ModConfig.Instance.Keymapping6 = KeymappingValues[sel];
+                ModConfig.Instance.Toggles[4] = ToggleValues[sel];
                 ModConfig.Instance.Save();
             });
-        }
 
-        private int GetSelectedOptionIndex(string[] option, string value)
-        {
-            int index = Array.IndexOf(option, value);
-            if (index < 0) index = 0;
+            selectedValue = ModConfig.Instance.Toggles[5];
+            group.AddDropdown("Toggle F", ToggleLabels, selectedValue, sel =>
+            {
+                ModConfig.Instance.Toggles[5] = ToggleValues[sel];
+                ModConfig.Instance.Save();
+            });
 
-            return index;
+            group = helper.AddGroup("Keymappings");
+
+            selectedValue = ModConfig.Instance.Keymappings[0];
+            group.AddDropdown("Toggle A", KeymappingLabels, selectedValue, sel =>
+            {
+                ModConfig.Instance.Keymappings[0] = KeymappingValues[sel];
+                ModConfig.Instance.Save();
+            });
+
+            selectedValue = ModConfig.Instance.Keymappings[1];
+            group.AddDropdown("Toggle B", KeymappingLabels, selectedValue, sel =>
+            {
+                ModConfig.Instance.Keymappings[1] = KeymappingValues[sel];
+                ModConfig.Instance.Save();
+            });
+
+            selectedValue = ModConfig.Instance.Keymappings[2];
+            group.AddDropdown("Toggle C", KeymappingLabels, selectedValue, sel =>
+            {
+                ModConfig.Instance.Keymappings[2] = KeymappingValues[sel];
+                ModConfig.Instance.Save();
+            });
+
+            selectedValue = ModConfig.Instance.Keymappings[3];
+            group.AddDropdown("Toggle D", KeymappingLabels, selectedValue, sel =>
+            {
+                ModConfig.Instance.Keymappings[3] = KeymappingValues[sel];
+                ModConfig.Instance.Save();
+            });
+
+            selectedValue = ModConfig.Instance.Keymappings[4];
+            group.AddDropdown("Toggle E", KeymappingLabels, selectedValue, sel =>
+            {
+                ModConfig.Instance.Keymappings[4] = KeymappingValues[sel];
+                ModConfig.Instance.Save();
+            });
+
+            selectedValue = ModConfig.Instance.Keymappings[5];
+            group.AddDropdown("Toggle F", KeymappingLabels, selectedValue, sel =>
+            {
+                ModConfig.Instance.Keymappings[5] = KeymappingValues[sel];
+                ModConfig.Instance.Save();
+            });
         }
     }
 }

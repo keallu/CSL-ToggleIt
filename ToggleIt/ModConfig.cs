@@ -4,18 +4,17 @@
     public class ModConfig
     {
         public bool ConfigUpdated { get; set; }
-        public string Keymapping1 { get; set; } = "Notification Icons";
-        public string Keymapping2 { get; set; } = "District Names";
-        public string Keymapping3 { get; set; } = "District Icons";
-        public string Keymapping4 { get; set; } = "Line Borders";
-        public string Keymapping5 { get; set; } = "Default Tool Colors";
-        public string Keymapping6 { get; set; } = "Move It! Tool Colors";
-        public bool NotificationIcons { get; set; }
-        public bool DistrictNames { get; set; }
-        public bool DistrictIcons { get; set; }
-        public bool LineBorders { get; set; }
-        public bool DefaultToolColors { get; set; }
-        public bool MoveItToolColors { get; set; }
+        public bool ShowTogglePanel { get; set; } = true;
+        public float PositionX { get; set; }
+        public float PositionY { get; set; }
+        public int[] Toggles { get; set; } = { 1, 2, 3, 4, 5, 6 };
+        public int[] Keymappings { get; set; } = { 1, 2, 3, 4, 5, 6 };
+        public bool NotificationIcons { get; set; } = true;
+        public bool DistrictNames { get; set; } = true;
+        public bool DistrictIcons { get; set; } = true;
+        public bool LineBorders { get; set; } = true;
+        public bool DefaultToolColors { get; set; } = true;
+        public bool MoveItToolColors { get; set; } = true;
 
         private static ModConfig instance;
 
@@ -36,6 +35,11 @@
         {
             Configuration<ModConfig>.Save();
             ConfigUpdated = true;
+        }
+
+        public void SaveWithoutUpdate()
+        {
+            Configuration<ModConfig>.Save();
         }
     }
 }
