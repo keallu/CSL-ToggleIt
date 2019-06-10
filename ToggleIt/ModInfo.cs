@@ -27,9 +27,13 @@ namespace ToggleIt
             "Notification Icons",
             "District Names",
             "District Icons",
-            "Line Borders",
+            "Border Lines",
+            "Contour Lines",
+            "Zoning Grid",
+            "Zoning Color",
             "Default Tool Colors",
-            "Move It! Tool Colors"
+            "Move It! Tool Colors",
+            "Automatic Info Views"
         };
 
         public static readonly int[] ToggleValues =
@@ -40,7 +44,11 @@ namespace ToggleIt
             3,
             4,
             5,
-            6
+            6,
+            7,
+            8,
+            9,
+            10
         };
 
         public static readonly string[] KeymappingLabels =

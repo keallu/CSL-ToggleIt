@@ -18,6 +18,12 @@ namespace ToggleIt
         private UICheckBox[] _toggleCheckboxes;
 
         private UITextureAtlas _defaultIngameTextureAtlas;
+        private Color _defaultZoneEdgeColor;
+        private Color _defaultZoneEdgeColorInfo;
+        private Color _defaultZoneEdgeColorOccupiedColor;
+        private Color _defaultZoneEdgeColorOccupiedInfo;
+        private Color _defaultZoneFillColor;
+        private Color _defaultZoneFillColorInfo;
         private Color _defaultValidColor;
         private Color _defaultWarningColor;
         private Color _defaultErrorColor;
@@ -54,8 +60,14 @@ namespace ToggleIt
             {
                 _defaultIngameTextureAtlas = Singleton<DistrictManager>.instance.m_properties.m_areaIconAtlas;
 
+                _defaultZoneEdgeColor = Shader.GetGlobalColor("_ZoneEdgeColor");
+                _defaultZoneEdgeColorInfo = Shader.GetGlobalColor("_ZoneEdgeColorInfo");
+                _defaultZoneEdgeColorOccupiedColor = Shader.GetGlobalColor("_ZoneEdgeColorOccupied");
+                _defaultZoneEdgeColorOccupiedInfo = Shader.GetGlobalColor("_ZoneEdgeColorOccupiedInfo");
+                _defaultZoneFillColor = Shader.GetGlobalColor("_ZoneFillColor");
+                _defaultZoneFillColorInfo = Shader.GetGlobalColor("_ZoneFillColorInfo");
+                
                 ToolController toolController = ToolsModifierControl.toolController;
-
                 _defaultValidColor = toolController.m_validColor;
                 _defaultWarningColor = toolController.m_warningColor;
                 _defaultErrorColor = toolController.m_errorColor;
@@ -219,6 +231,8 @@ namespace ToggleIt
                         _toggleCheckboxes[i].isEnabled = true;
                         _toggleCheckboxes[i].isChecked = GetToggleState(ModConfig.Instance.Toggles[i]);
                         _toggleCheckboxes[i].tooltip = CreateTooltip(ModConfig.Instance.Toggles[i], ModConfig.Instance.Keymappings[i]);
+
+                        DoToggle(ModConfig.Instance.Toggles[(int)_toggleCheckboxes[i].objectUserData], false, _toggleCheckboxes[i].isChecked);
                     }
                 }
             }
@@ -258,11 +272,19 @@ namespace ToggleIt
                     case 3:
                         return ModConfig.Instance.DistrictIcons;
                     case 4:
-                        return ModConfig.Instance.LineBorders;
+                        return ModConfig.Instance.BorderLines;
                     case 5:
-                        return ModConfig.Instance.DefaultToolColors;
+                        return ModConfig.Instance.ContourLines;
                     case 6:
+                        return ModConfig.Instance.ZoningGrid;
+                    case 7:
+                        return ModConfig.Instance.ZoningColor;
+                    case 8:
+                        return ModConfig.Instance.DefaultToolColors;
+                    case 9:
                         return ModConfig.Instance.MoveItToolColors;
+                    case 10:
+                        return ModConfig.Instance.AutomaticInfoViews;
                     default:
                         return false;
                 }
@@ -328,16 +350,31 @@ namespace ToggleIt
                         ToggleDistrictIcons(ModConfig.Instance.DistrictIcons);
                         break;
                     case 4:
-                        ModConfig.Instance.LineBorders = autoToggle ? !ModConfig.Instance.LineBorders : enable;
-                        ToggleLineBorders(ModConfig.Instance.LineBorders);
+                        ModConfig.Instance.BorderLines = autoToggle ? !ModConfig.Instance.BorderLines : enable;
+                        ToggleBorderLines(ModConfig.Instance.BorderLines);
                         break;
                     case 5:
+                        ModConfig.Instance.ContourLines = autoToggle ? !ModConfig.Instance.ContourLines : enable;
+                        ToggleContourLines(ModConfig.Instance.ContourLines);
+                        break;
+                    case 6:
+                        ModConfig.Instance.ZoningGrid = autoToggle ? !ModConfig.Instance.ZoningGrid : enable;
+                        ToggleZoningGrid(ModConfig.Instance.ZoningGrid);
+                        break;
+                    case 7:
+                        ModConfig.Instance.ZoningColor = autoToggle ? !ModConfig.Instance.ZoningColor : enable;
+                        ToggleZoningColor(ModConfig.Instance.ZoningColor);
+                        break;
+                    case 8:
                         ModConfig.Instance.DefaultToolColors = autoToggle ? !ModConfig.Instance.DefaultToolColors : enable;
                         ToggleDefaultToolColor(ModConfig.Instance.DefaultToolColors);
                         break;
-                    case 6:
+                    case 9:
                         ModConfig.Instance.MoveItToolColors = autoToggle ? !ModConfig.Instance.MoveItToolColors : enable;
                         ToggleMoveItToolColor(ModConfig.Instance.MoveItToolColors);
+                        break;
+                    case 10:
+                        ModConfig.Instance.AutomaticInfoViews = autoToggle ? !ModConfig.Instance.AutomaticInfoViews : enable;
                         break;
                     default:
                         break;
@@ -399,15 +436,55 @@ namespace ToggleIt
             }
         }
 
-        private void ToggleLineBorders(bool enableLineBorders)
+        private void ToggleBorderLines(bool enableBorderLines)
         {
             try
             {
-                Singleton<GameAreaManager>.instance.BordersVisible = enableLineBorders;
+                Singleton<GameAreaManager>.instance.BordersVisible = enableBorderLines;
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:ToggleLineBorders -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ToggleManager:ToggleBorderLines -> Exception: " + e.Message);
+            }
+        }
+
+        private void ToggleContourLines(bool enableContourLines)
+        {
+            try
+            {
+                Singleton<TerrainManager>.instance.RenderTopographyInfo = enableContourLines;
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[Toggle It!] ToggleManager:ToggleContourLines -> Exception: " + e.Message);
+            }
+        }
+
+        private void ToggleZoningGrid(bool enableZoningGrid)
+        {
+            try
+            {
+                Shader.SetGlobalColor("_ZoneEdgeColor", enableZoningGrid ? _defaultZoneEdgeColor : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColorInfo", enableZoningGrid ? _defaultZoneEdgeColorInfo : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColorOccupied", enableZoningGrid ? _defaultZoneEdgeColorOccupiedColor : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColorOccupiedInfo", enableZoningGrid ? _defaultZoneEdgeColorOccupiedInfo : new Color(0f, 0f, 0f, 0f));
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[Toggle It!] ToggleManager:ToggleZoningGrid -> Exception: " + e.Message);
+            }
+        }
+
+        private void ToggleZoningColor(bool enableZoningColor)
+        {
+            try
+            {
+                Shader.SetGlobalColor("_ZoneFillColor", enableZoningColor ? _defaultZoneFillColor : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneFillColorInfo", enableZoningColor ? _defaultZoneFillColorInfo : new Color(0f, 0f, 0f, 0f));
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[Toggle It!] ToggleManager:ToggleZoningColor -> Exception: " + e.Message);
             }
         }
 

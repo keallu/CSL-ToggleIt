@@ -31,7 +31,7 @@ namespace ToggleIt
                 {
                     m_cachedFreeCamera = __instance.m_freeCamera;
                     Singleton<NotificationManager>.instance.NotificationsVisible = __instance.m_freeCamera ? false : !ModConfig.Instance.NotificationIcons;
-                    Singleton<GameAreaManager>.instance.BordersVisible = __instance.m_freeCamera ? false : !ModConfig.Instance.LineBorders;
+                    Singleton<GameAreaManager>.instance.BordersVisible = __instance.m_freeCamera ? false : !ModConfig.Instance.BorderLines;
                     Singleton<DistrictManager>.instance.NamesVisible = __instance.m_freeCamera ? false : !ModConfig.Instance.DistrictNames;
                 }
             }
@@ -52,13 +52,37 @@ namespace ToggleIt
                 if (visible)
                 {
                     Singleton<NotificationManager>.instance.NotificationsVisible = !ModConfig.Instance.NotificationIcons;
-                    Singleton<GameAreaManager>.instance.BordersVisible = !ModConfig.Instance.LineBorders;
+                    Singleton<GameAreaManager>.instance.BordersVisible = !ModConfig.Instance.BorderLines;
                     Singleton<DistrictManager>.instance.NamesVisible = !ModConfig.Instance.DistrictNames;
                 }
             }
             catch (Exception e)
             {
                 Debug.Log("[Toggle It!] CinematicCameraControllerSetUIVisiblePatch:Postfix -> Exception: " + e.Message);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(ToolBase), "ForceInfoMode")]
+    public static class ToolBaseForceInfoModePatch
+    {
+        static bool Prefix()
+        {
+            try
+            {
+                if (ModConfig.Instance.AutomaticInfoViews)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[Toggle It!] ToolBaseForceInfoModePatch:Prefix -> Exception: " + e.Message);
+                return true;
             }
         }
     }
