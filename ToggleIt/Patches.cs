@@ -30,9 +30,9 @@ namespace ToggleIt
                 if (__instance.m_freeCamera != m_cachedFreeCamera)
                 {
                     m_cachedFreeCamera = __instance.m_freeCamera;
-                    Singleton<NotificationManager>.instance.NotificationsVisible = __instance.m_freeCamera ? false : !ModConfig.Instance.NotificationIcons;
-                    Singleton<GameAreaManager>.instance.BordersVisible = __instance.m_freeCamera ? false : !ModConfig.Instance.BorderLines;
-                    Singleton<DistrictManager>.instance.NamesVisible = __instance.m_freeCamera ? false : !ModConfig.Instance.DistrictNames;
+                    Singleton<NotificationManager>.instance.NotificationsVisible = __instance.m_freeCamera ? false : ModConfig.Instance.NotificationIcons;
+                    Singleton<GameAreaManager>.instance.BordersVisible = __instance.m_freeCamera ? false : ModConfig.Instance.BorderLines;
+                    Singleton<DistrictManager>.instance.NamesVisible = __instance.m_freeCamera ? false : ModConfig.Instance.DistrictNames;
                 }
             }
             catch (Exception e)
@@ -51,14 +51,37 @@ namespace ToggleIt
             {
                 if (visible)
                 {
-                    Singleton<NotificationManager>.instance.NotificationsVisible = !ModConfig.Instance.NotificationIcons;
-                    Singleton<GameAreaManager>.instance.BordersVisible = !ModConfig.Instance.BorderLines;
-                    Singleton<DistrictManager>.instance.NamesVisible = !ModConfig.Instance.DistrictNames;
+                    Singleton<NotificationManager>.instance.NotificationsVisible = ModConfig.Instance.NotificationIcons;
+                    Singleton<GameAreaManager>.instance.BordersVisible = ModConfig.Instance.BorderLines;
+                    Singleton<DistrictManager>.instance.NamesVisible = ModConfig.Instance.DistrictNames;
                 }
             }
             catch (Exception e)
             {
                 Debug.Log("[Toggle It!] CinematicCameraControllerSetUIVisiblePatch:Postfix -> Exception: " + e.Message);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(InfoManager), "SetCurrentMode")]
+    public static class InfoManagerSetCurrentModePatch
+    {
+        static void Postfix(InfoManager.InfoMode mode, InfoManager.SubInfoMode subMode)
+        {
+            try
+            {
+                if (mode == InfoManager.InfoMode.TrafficRoutes && subMode == InfoManager.SubInfoMode.JunctionSettings)
+                {
+                    Singleton<NotificationManager>.instance.NotificationsVisible = true;
+                }
+                else
+                {
+                    Singleton<NotificationManager>.instance.NotificationsVisible = ModConfig.Instance.NotificationIcons;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[Toggle It!] InfoManagerSetCurrentModePatch:Postfix -> Exception: " + e.Message);
             }
         }
     }
