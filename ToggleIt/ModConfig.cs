@@ -18,6 +18,8 @@
         public bool ZoningColor { get; set; } = true;
         public bool DefaultToolColors { get; set; } = true;
         public bool MoveItToolColors { get; set; } = true;
+        public bool DefaultToolInfo { get; set; } = true;
+        public bool DefaultToolExtraInfo { get; set; } = true;
         public bool AutomaticInfoViews { get; set; } = true;
 
         private static ModConfig instance;

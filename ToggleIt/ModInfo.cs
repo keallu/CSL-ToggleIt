@@ -7,7 +7,7 @@ namespace ToggleIt
     public class ModInfo : IUserMod
     {
         public string Name => "Toggle It!";
-        public string Description => "Allows to toggle different elements in the game.";
+        public string Description => "Allows to toggle different visual elements in the game.";
 
         public void OnEnabled()
         {
@@ -33,6 +33,8 @@ namespace ToggleIt
             "Zoning Color",
             "Default Tool Colors",
             "Move It! Tool Colors",
+            "Default Tool Info",
+            "Default Tool Extra Info",
             "Automatic Info Views"
         };
 
@@ -48,18 +50,50 @@ namespace ToggleIt
             7,
             8,
             9,
-            10
+            10,
+            11,
+            12
         };
 
         public static readonly string[] KeymappingLabels =
         {
             "None",
+            "LEFT CTRL + A",
+            "LEFT CTRL + B",
+            "LEFT CTRL + C",
+            "LEFT CTRL + D",
+            "LEFT CTRL + E",
+            "LEFT CTRL + F",
+            "LEFT CTRL + G",
             "LEFT CTRL + H",
             "LEFT CTRL + I",
             "LEFT CTRL + J",
             "LEFT CTRL + K",
             "LEFT CTRL + L",
-            "LEFT CTRL + M"
+            "LEFT CTRL + M",
+            "LEFT CTRL + N",
+            "LEFT CTRL + O",
+            "LEFT CTRL + P",
+            "LEFT CTRL + Q",
+            "LEFT CTRL + R",
+            "LEFT CTRL + S",
+            "LEFT CTRL + T",
+            "LEFT CTRL + U",
+            "LEFT CTRL + V",
+            "LEFT CTRL + W",
+            "LEFT CTRL + X",
+            "LEFT CTRL + Y",
+            "LEFT CTRL + Z",
+            "LEFT CTRL + 1",
+            "LEFT CTRL + 2",
+            "LEFT CTRL + 3",
+            "LEFT CTRL + 4",
+            "LEFT CTRL + 5",
+            "LEFT CTRL + 6",
+            "LEFT CTRL + 7",
+            "LEFT CTRL + 8",
+            "LEFT CTRL + 9"
+
         };
 
         public static readonly int[] KeymappingValues =
@@ -70,7 +104,36 @@ namespace ToggleIt
             3,
             4,
             5,
-            6
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32,
+            33,
+            34,
+            35
         };
 
         public void OnSettingsUI(UIHelperBase helper)

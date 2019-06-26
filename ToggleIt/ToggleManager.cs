@@ -131,30 +131,7 @@ namespace ToggleIt
                     ModConfig.Instance.ConfigUpdated = false;
                 }
 
-                if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.H))
-                {
-                    SelectToggle(1);
-                }
-                else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.I))
-                {
-                    SelectToggle(2);
-                }
-                else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.J))
-                {
-                    SelectToggle(3);
-                }
-                else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.K))
-                {
-                    SelectToggle(4);
-                }
-                else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.L))
-                {
-                    SelectToggle(5);
-                }
-                else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.M))
-                {
-                    SelectToggle(6);
-                }
+                SelectToggle(KeyChecker.GetKeyCombo());
             }
             catch (Exception e)
             {
@@ -284,6 +261,10 @@ namespace ToggleIt
                     case 9:
                         return ModConfig.Instance.MoveItToolColors;
                     case 10:
+                        return ModConfig.Instance.DefaultToolInfo;
+                    case 11:
+                        return ModConfig.Instance.DefaultToolExtraInfo;
+                    case 12:
                         return ModConfig.Instance.AutomaticInfoViews;
                     default:
                         return false;
@@ -374,6 +355,12 @@ namespace ToggleIt
                         ToggleMoveItToolColor(ModConfig.Instance.MoveItToolColors);
                         break;
                     case 10:
+                        ModConfig.Instance.DefaultToolInfo = autoToggle ? !ModConfig.Instance.DefaultToolInfo : enable;
+                        break;
+                    case 11:
+                        ModConfig.Instance.DefaultToolExtraInfo = autoToggle ? !ModConfig.Instance.DefaultToolExtraInfo : enable;
+                        break;
+                    case 12:
                         ModConfig.Instance.AutomaticInfoViews = autoToggle ? !ModConfig.Instance.AutomaticInfoViews : enable;
                         break;
                     default:

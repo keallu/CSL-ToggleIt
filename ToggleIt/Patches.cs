@@ -86,6 +86,54 @@ namespace ToggleIt
         }
     }
 
+    [HarmonyPatch(typeof(ToolBase), "ShowToolInfo")]
+    public static class ToolBaseShowToolInfoPatch
+    {
+        static bool Prefix()
+        {
+            try
+            {
+                if (ModConfig.Instance.DefaultToolInfo)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[Toggle It!] ToolBaseShowToolInfoPatch:Prefix -> Exception: " + e.Message);
+                return true;
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(ToolBase), "ShowExtraInfo")]
+    public static class ToolBaseShowExtraInfoPatch
+    {
+        static bool Prefix()
+        {
+            try
+            {
+                if (ModConfig.Instance.DefaultToolExtraInfo)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[Toggle It!] ToolBaseShowExtraInfoPatch:Prefix -> Exception: " + e.Message);
+                return true;
+            }
+        }
+    }
+
     [HarmonyPatch(typeof(ToolBase), "ForceInfoMode")]
     public static class ToolBaseForceInfoModePatch
     {
