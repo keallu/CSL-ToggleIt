@@ -4,150 +4,154 @@ namespace ToggleIt
 {
     public static class KeyChecker
     {
-        public static int GetKeyCombo()
+        public static bool GetKeyCombo(out int key)
         {
             if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.A))
             {
-                return 1;
+                key = 1;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.B))
             {
-                return 2;
+                key = 2;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.C))
             {
-                return 3;
+                key = 3;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.D))
             {
-                return 4;
+                key = 4;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.E))
             {
-                return 5;
+                key = 5;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.F))
             {
-                return 6;
+                key = 6;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.G))
             {
-                return 7;
+                key = 7;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.H))
             {
-                return 8;
+                key = 8;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.I))
             {
-                return 9;
+                key = 9;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.J))
             {
-                return 10;
+                key = 10;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.K))
             {
-                return 11;
+                key = 11;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.L))
             {
-                return 12;
+                key = 12;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.M))
             {
-                return 13;
+                key = 13;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.N))
             {
-                return 14;
+                key = 14;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.O))
             {
-                return 15;
+                key = 15;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.P))
             {
-                return 16;
+                key = 16;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Q))
             {
-                return 17;
+                key = 17;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.R))
             {
-                return 18;
+                key = 18;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.S))
             {
-                return 19;
+                key = 19;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.T))
             {
-                return 20;
+                key = 20;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.U))
             {
-                return 21;
+                key = 21;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.V))
             {
-                return 22;
+                key = 22;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.W))
             {
-                return 23;
+                key = 23;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.X))
             {
-                return 24;
+                key = 24;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Y))
             {
-                return 25;
+                key = 25;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Z))
             {
-                return 26;
+                key = 26;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Alpha1))
             {
-                return 27;
+                key = 27;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Alpha2))
             {
-                return 28;
+                key = 28;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Alpha3))
             {
-                return 29;
+                key = 29;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Alpha4))
             {
-                return 30;
+                key = 30;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Alpha5))
             {
-                return 31;
+                key = 31;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Alpha6))
             {
-                return 32;
+                key = 32;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Alpha7))
             {
-                return 33;
+                key = 33;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Alpha8))
             {
-                return 34;
+                key = 34;
             }
             else if (Input.GetKey(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.Alpha9))
             {
-                return 35;
+                key = 35;
+            }
+            else
+            {
+                key = 0;
             }
 
-            return 0;
+            return key != 0;
         }
     }
 }

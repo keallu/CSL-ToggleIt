@@ -3,18 +3,18 @@ using UnityEngine;
 
 namespace ToggleIt
 {
-    public class ToggleProperties
+    public class ModProperties
     {
         public float PanelDefaultPositionX;
         public float PanelDefaultPositionY;
 
-        private static ToggleProperties instance;
+        private static ModProperties instance;
 
-        public static ToggleProperties Instance
+        public static ModProperties Instance
         {
             get
             {
-                return instance ?? (instance = new ToggleProperties());
+                return instance ?? (instance = new ModProperties());
             }
         }
 
@@ -28,7 +28,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleProperties:ResetPanelPosition -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModProperties:ResetPanelPosition -> Exception: " + e.Message);
             }
         }
     }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace ToggleIt
 {
-    public class ToggleManager : MonoBehaviour
+    public class ModManager : MonoBehaviour
     {
         private bool _initialized;
 
@@ -44,13 +44,13 @@ namespace ToggleIt
                 if (_esc == null)
                 {
                     _esc = GameObject.Find("Esc").GetComponent<UIButton>();
-                    ToggleProperties.Instance.PanelDefaultPositionX = _esc.absolutePosition.x - 800f;
-                    ToggleProperties.Instance.PanelDefaultPositionY = _esc.absolutePosition.y;
+                    ModProperties.Instance.PanelDefaultPositionX = _esc.absolutePosition.x - 800f;
+                    ModProperties.Instance.PanelDefaultPositionY = _esc.absolutePosition.y;
                 }
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:Awake -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:Awake -> Exception: " + e.Message);
             }
         }
 
@@ -74,12 +74,12 @@ namespace ToggleIt
 
                 if (ModConfig.Instance.PositionX == 0.0f)
                 {
-                    ModConfig.Instance.PositionX = ToggleProperties.Instance.PanelDefaultPositionX;
+                    ModConfig.Instance.PositionX = ModProperties.Instance.PanelDefaultPositionX;
                 }
 
                 if (ModConfig.Instance.PositionY == 0.0f)
                 {
-                    ModConfig.Instance.PositionY = ToggleProperties.Instance.PanelDefaultPositionY;
+                    ModConfig.Instance.PositionY = ModProperties.Instance.PanelDefaultPositionY;
                 }
 
                 _toggleCheckboxes = new UICheckBox[6];
@@ -88,7 +88,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:Start -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:Start -> Exception: " + e.Message);
             }
         }
 
@@ -115,7 +115,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:OnDestroy -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:OnDestroy -> Exception: " + e.Message);
             }
         }
 
@@ -131,11 +131,14 @@ namespace ToggleIt
                     ModConfig.Instance.ConfigUpdated = false;
                 }
 
-                SelectToggle(KeyChecker.GetKeyCombo());
+                if (KeyChecker.GetKeyCombo(out int key))
+                {
+                    SelectToggle(key);
+                }
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:Update -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:Update -> Exception: " + e.Message);
             }
         }
 
@@ -184,7 +187,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:CreateUI -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:CreateUI -> Exception: " + e.Message);
             }
         }
 
@@ -215,7 +218,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:UpdateUI -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:UpdateUI -> Exception: " + e.Message);
             }
         }
 
@@ -231,7 +234,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:CreateTooltip -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:CreateTooltip -> Exception: " + e.Message);
                 return string.Empty;
             }
         }
@@ -272,7 +275,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:GetToggleState -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:GetToggleState -> Exception: " + e.Message);
                 return false;
             }
         }
@@ -308,7 +311,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:SelectToggle -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:SelectToggle -> Exception: " + e.Message);
             }
         }
 
@@ -371,7 +374,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:DoToggle -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:DoToggle -> Exception: " + e.Message);
             }
         }
 
@@ -383,7 +386,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleeManager:ToggleNotificationIcons -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:ToggleNotificationIcons -> Exception: " + e.Message);
             }
         }
 
@@ -395,7 +398,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:ToggleDistrictNames -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:ToggleDistrictNames -> Exception: " + e.Message);
             }
         }
 
@@ -419,7 +422,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:ToggleDistrictIcons -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:ToggleDistrictIcons -> Exception: " + e.Message);
             }
         }
 
@@ -431,7 +434,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:ToggleBorderLines -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:ToggleBorderLines -> Exception: " + e.Message);
             }
         }
 
@@ -443,7 +446,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:ToggleContourLines -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:ToggleContourLines -> Exception: " + e.Message);
             }
         }
 
@@ -458,7 +461,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:ToggleZoningGrid -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:ToggleZoningGrid -> Exception: " + e.Message);
             }
         }
 
@@ -471,7 +474,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:ToggleZoningColor -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:ToggleZoningColor -> Exception: " + e.Message);
             }
         }
 
@@ -490,7 +493,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:ToggleDefaultToolColor -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:ToggleDefaultToolColor -> Exception: " + e.Message);
             }
         }
 
@@ -513,7 +516,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:ToggleMoveItToolColor -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:ToggleMoveItToolColor -> Exception: " + e.Message);
             }
         }
 
@@ -545,7 +548,7 @@ namespace ToggleIt
             }
             catch (Exception e)
             {
-                Debug.Log("[Toggle It!] ToggleManager:ToggleMoveItColor -> Exception: " + e.Message);
+                Debug.Log("[Toggle It!] ModManager:ToggleMoveItColor -> Exception: " + e.Message);
             }
         }
     }

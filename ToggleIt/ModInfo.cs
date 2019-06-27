@@ -155,7 +155,7 @@ namespace ToggleIt
 
             group.AddButton("Reset Positioning of Toggle Panel", () =>
             {
-                ToggleProperties.Instance.ResetPanelPosition();
+                ModProperties.Instance.ResetPanelPosition();
             });
 
             group = helper.AddGroup("Toggles");

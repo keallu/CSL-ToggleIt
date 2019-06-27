@@ -6,14 +6,14 @@ namespace ToggleIt
 {
     public class Loading : LoadingExtensionBase
     {
-        private GameObject _toggleManagerGameObject;
+        private GameObject _modManagerGameObject;
 
         public override void OnLevelLoaded(LoadMode mode)
         {
             try
             {
-                _toggleManagerGameObject = new GameObject("ToggleItToggleManager");
-                _toggleManagerGameObject.AddComponent<ToggleManager>();
+                _modManagerGameObject = new GameObject("ToggleItModManager");
+                _modManagerGameObject.AddComponent<ModManager>();
             }
             catch (Exception e)
             {
@@ -25,9 +25,9 @@ namespace ToggleIt
         {
             try
             {
-                if (_toggleManagerGameObject != null)
+                if (_modManagerGameObject != null)
                 {
-                    UnityEngine.Object.Destroy(_toggleManagerGameObject);
+                    UnityEngine.Object.Destroy(_modManagerGameObject);
                 }
 
             }
