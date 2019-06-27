@@ -148,7 +148,8 @@ namespace ToggleIt
             {
                 _togglePanel = UIUtils.CreatePanel("ToggleItTogglePanel");
                 _togglePanel.zOrder = 0;
-                _togglePanel.backgroundSprite = "SubcategoriesPanel";
+                _togglePanel.backgroundSprite = "GenericPanelLight";
+                _togglePanel.color = new Color32(96, 96, 96, 255);
                 _togglePanel.size = new Vector2(242f, 62f);
 
                 _toggleDragHandle = UIUtils.CreateDragHandle(_togglePanel, "ToggleDragHandle");
@@ -162,7 +163,8 @@ namespace ToggleIt
                 };
 
                 _toggleInnerPanel = UIUtils.CreatePanel(_togglePanel, "ToggleInnerPanel");
-                _toggleInnerPanel.backgroundSprite = "GenericPanel";
+                _toggleInnerPanel.backgroundSprite = "GenericPanelLight";
+                _toggleInnerPanel.color = new Color32(206, 206, 206, 255);
                 _toggleInnerPanel.size = new Vector2(_toggleInnerPanel.parent.width - 16f, _toggleInnerPanel.parent.height - 16f);
                 _toggleInnerPanel.relativePosition = new Vector3(8f, 8f);
 

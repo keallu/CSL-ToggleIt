@@ -52,7 +52,6 @@ namespace ToggleIt
             if (state)
             {
                 button.normalBgSprite = "OptionBaseFocused";
-                //button.normalFgSprite = spriteName + "Focused";
             }
 
             checkBox.eventCheckChanged += (component, value) =>
@@ -60,12 +59,10 @@ namespace ToggleIt
                 if (value)
                 {
                     button.normalBgSprite = "OptionBaseFocused";
-                    //button.normalFgSprite = spriteName + "Focused";
                 }
                 else
                 {
                     button.normalBgSprite = "OptionBase";
-                    //button.normalFgSprite = spriteName;
                 }
             };
 
