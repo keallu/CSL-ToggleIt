@@ -6,19 +6,22 @@ namespace ToggleIt
 {
     public class ModInfo : IUserMod
     {
+        private readonly string _harmonyId = "com.github.keallu.csl.toggleit";
+        private HarmonyInstance _harmony;
+
         public string Name => "Toggle It!";
         public string Description => "Allows to toggle different visual elements in the game.";
 
         public void OnEnabled()
         {
-            var harmony = HarmonyInstance.Create("com.github.keallu.csl.toggleit");
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
+            _harmony = HarmonyInstance.Create(_harmonyId);
+            _harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
 
         public void OnDisabled()
         {
-            var harmony = HarmonyInstance.Create("com.github.keallu.csl.toggleit");
-            harmony.UnpatchAll();
+            _harmony.UnpatchAll(_harmonyId);
+            _harmony = null;
         }
 
         public static readonly string[] ToggleLabels =
