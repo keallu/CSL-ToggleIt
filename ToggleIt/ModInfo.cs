@@ -1,6 +1,5 @@
-﻿using Harmony;
+﻿using CitiesHarmony.API;
 using ICities;
-using System.Reflection;
 
 namespace ToggleIt
 {
@@ -11,14 +10,15 @@ namespace ToggleIt
 
         public void OnEnabled()
         {
-            var harmony = HarmonyInstance.Create("com.github.keallu.csl.toggleit");
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
+            HarmonyHelper.DoOnHarmonyReady(() => Patcher.PatchAll());
         }
 
         public void OnDisabled()
         {
-            var harmony = HarmonyInstance.Create("com.github.keallu.csl.toggleit");
-            harmony.UnpatchAll();
+            if (HarmonyHelper.IsHarmonyInstalled)
+            {
+                Patcher.UnpatchAll();
+            }
         }
 
         public static readonly string[] ToggleLabels =
