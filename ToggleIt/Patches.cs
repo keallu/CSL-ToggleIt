@@ -1,8 +1,8 @@
-﻿using ColossalFramework;
-using HarmonyLib;
+﻿using HarmonyLib;
 using System;
 using System.Reflection;
 using UnityEngine;
+using ToggleIt.Helpers;
 
 namespace ToggleIt
 {
@@ -30,9 +30,31 @@ namespace ToggleIt
                 if (__instance.m_freeCamera != m_cachedFreeCamera)
                 {
                     m_cachedFreeCamera = __instance.m_freeCamera;
-                    Singleton<NotificationManager>.instance.NotificationsVisible = __instance.m_freeCamera ? false : ModConfig.Instance.NotificationIcons;
-                    Singleton<GameAreaManager>.instance.BordersVisible = __instance.m_freeCamera ? false : ModConfig.Instance.BorderLines;
-                    Singleton<DistrictManager>.instance.NamesVisible = __instance.m_freeCamera ? false : ModConfig.Instance.DistrictNames;
+
+                    if (__instance.m_freeCamera)
+                    {
+                        ToggleHelper.UpdateBuildings(true);
+                        ToggleHelper.UpdateContourLines(false);
+                        ToggleHelper.UpdateZoning(false);
+                        ToggleHelper.UpdateDistrictZones(false);
+                        ToggleHelper.UpdateTunnels(false);
+                        ToggleHelper.UpdateWaterPipes(false);
+                        ToggleHelper.UpdateHeatingPipes(false);
+                    }
+                    else
+                    {
+                        ToggleHelper.UpdateNotificationIcons(ModConfig.Instance.NotificationIcons);
+                        ToggleHelper.UpdateRoadNames(ModConfig.Instance.RoadNames);
+                        ToggleHelper.UpdateBuildings(ModConfig.Instance.Buildings);
+                        ToggleHelper.UpdateBorderLines(ModConfig.Instance.BorderLines);
+                        ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
+                        ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
+                        ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
+                        ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
+                        ToggleHelper.UpdateTunnels(ModConfig.Instance.Tunnels);
+                        ToggleHelper.UpdateWaterPipes(ModConfig.Instance.WaterPipes);
+                        ToggleHelper.UpdateHeatingPipes(ModConfig.Instance.HeatingPipes);
+                    }
                 }
             }
             catch (Exception e)
@@ -49,16 +71,52 @@ namespace ToggleIt
         {
             try
             {
-                if (visible)
+                if (!visible)
                 {
-                    Singleton<NotificationManager>.instance.NotificationsVisible = ModConfig.Instance.NotificationIcons;
-                    Singleton<GameAreaManager>.instance.BordersVisible = ModConfig.Instance.BorderLines;
-                    Singleton<DistrictManager>.instance.NamesVisible = ModConfig.Instance.DistrictNames;
+                    ToggleHelper.UpdateBuildings(true);
+                    ToggleHelper.UpdateContourLines(false);
+                    ToggleHelper.UpdateZoning(false);
+                    ToggleHelper.UpdateDistrictZones(false);
+                    ToggleHelper.UpdateTunnels(false);
+                    ToggleHelper.UpdateWaterPipes(false);
+                    ToggleHelper.UpdateHeatingPipes(false);
+                }
+                else
+                {
+                    ToggleHelper.UpdateNotificationIcons(ModConfig.Instance.NotificationIcons);
+                    ToggleHelper.UpdateRoadNames(ModConfig.Instance.RoadNames);
+                    ToggleHelper.UpdateBuildings(ModConfig.Instance.Buildings);
+                    ToggleHelper.UpdateBorderLines(ModConfig.Instance.BorderLines);
+                    ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
+                    ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
+                    ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
+                    ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
+                    ToggleHelper.UpdateTunnels(ModConfig.Instance.Tunnels);
+                    ToggleHelper.UpdateWaterPipes(ModConfig.Instance.WaterPipes);
+                    ToggleHelper.UpdateHeatingPipes(ModConfig.Instance.HeatingPipes);
                 }
             }
             catch (Exception e)
             {
                 Debug.Log("[Toggle It!] CinematicCameraControllerSetUIVisiblePatch:Postfix -> Exception: " + e.Message);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(InfoManager), "SetActualMode")]
+    public static class InfoManagerSetActualModePatch
+    {
+        static void Postfix(InfoManager.InfoMode mode, InfoManager.SubInfoMode subMode)
+        {
+            try
+            {
+                ToggleHelper.UpdateTunnels(ModConfig.Instance.Tunnels);
+                ToggleHelper.UpdateWaterPipes(ModConfig.Instance.WaterPipes);
+                ToggleHelper.UpdateHeatingPipes(ModConfig.Instance.HeatingPipes);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[Toggle It!] InfoManagerSetActualModePatch:Postfix -> Exception: " + e.Message);
             }
         }
     }
@@ -72,16 +130,99 @@ namespace ToggleIt
             {
                 if (mode == InfoManager.InfoMode.TrafficRoutes && subMode == InfoManager.SubInfoMode.JunctionSettings)
                 {
-                    Singleton<NotificationManager>.instance.NotificationsVisible = true;
+                    ToggleHelper.UpdateNotificationIcons(true);
                 }
                 else
                 {
-                    Singleton<NotificationManager>.instance.NotificationsVisible = ModConfig.Instance.NotificationIcons;
+                    ToggleHelper.UpdateNotificationIcons(ModConfig.Instance.NotificationIcons);
                 }
             }
             catch (Exception e)
             {
                 Debug.Log("[Toggle It!] InfoManagerSetCurrentModePatch:Postfix -> Exception: " + e.Message);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(NetTool), "OnDisable")]
+    public static class NetToolOnDisablePatch
+    {
+        static void Postfix()
+        {
+            try
+            {
+                ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
+                ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
+                ToggleHelper.UpdateTunnels(ModConfig.Instance.Tunnels);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[Toggle It!] NetToolOnDisablePatch:Postfix -> Exception: " + e.Message);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(TerrainTool), "OnDisable")]
+    public static class TerrainToolOnDisablePatch
+    {
+        static void Postfix()
+        {
+            try
+            {
+                ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
+                ToggleHelper.UpdateTunnels(ModConfig.Instance.Tunnels);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[Toggle It!] TerrainToolOnDisablePatch:Postfix -> Exception: " + e.Message);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(BuildingTool), "OnDisable")]
+    public static class BuildingToolOnDisablePatch
+    {
+        static void Postfix()
+        {
+            try
+            {
+                ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[Toggle It!] TerrainToollOnDisablePatch:Postfix -> Exception: " + e.Message);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(ZoneTool), "OnDisable")]
+    public static class ZoneToolOnDisablePatch
+    {
+        static void Postfix()
+        {
+            try
+            {
+                ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[Toggle It!] ZoneToolOnDisablePatch:Postfix -> Exception: " + e.Message);
+            }
+        }
+    }
+
+    [HarmonyPatch(typeof(DistrictTool), "OnDisable")]
+    public static class DistrictToolOnDisablePatch
+    {
+        static void Postfix()
+        {
+            try
+            {
+                ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[Toggle It!] ZoneToolOnDisablePatch:Postfix -> Exception: " + e.Message);
             }
         }
     }

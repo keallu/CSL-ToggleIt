@@ -24,18 +24,24 @@ namespace ToggleIt
         public static readonly string[] ToggleLabels =
         {
             "None",
+            "Automatic Info Views",
             "Notification Icons",
-            "District Names",
-            "District Icons",
+            "Road Names",
+            "Buildings",
             "Border Lines",
             "Contour Lines",
+            "Zoning",
             "Zoning Grid",
             "Zoning Color",
-            "Default Tool Colors",
-            "Move It! Tool Colors",
-            "Default Tool Info",
-            "Default Tool Extra Info",
-            "Automatic Info Views"
+            "District Zones",
+            "District Names",
+            "District Icons",
+            "Tunnels",
+            "Water Pipes",
+            "Heating Pipes",
+            "Tool Colors",
+            "Tool Info",
+            "Tool Extra Info"
         };
 
         public static readonly int[] ToggleValues =
@@ -52,7 +58,13 @@ namespace ToggleIt
             9,
             10,
             11,
-            12
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
         };
 
         public static readonly string[] KeymappingLabels =

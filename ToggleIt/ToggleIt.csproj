@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration.cs" />
+    <Compile Include="Helpers\ToggleHelper.cs" />
     <Compile Include="KeyChecker.cs" />
     <Compile Include="Loading.cs" />
     <Compile Include="ModConfig.cs" />
