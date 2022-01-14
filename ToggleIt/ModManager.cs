@@ -263,16 +263,10 @@ namespace ToggleIt
                     case 12:
                         return ModConfig.Instance.DistrictIcons;
                     case 13:
-                        return ModConfig.Instance.Tunnels;
-                    case 14:
-                        return ModConfig.Instance.WaterPipes;
-                    case 15:
-                        return ModConfig.Instance.HeatingPipes;
-                    case 16:
                         return ModConfig.Instance.DefaultToolColors;
-                    case 17:
+                    case 14:
                         return ModConfig.Instance.DefaultToolInfo;
-                    case 18:
+                    case 15:
                         return ModConfig.Instance.DefaultToolExtraInfo;
                     default:
                         return false;
@@ -374,25 +368,13 @@ namespace ToggleIt
                         ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons, _defaultIngameTextureAtlas);
                         break;
                     case 13:
-                        ModConfig.Instance.Tunnels = autoToggle ? !ModConfig.Instance.Tunnels : enable;
-                        ToggleHelper.UpdateTunnels(ModConfig.Instance.Tunnels);
-                        break;
-                    case 14:
-                        ModConfig.Instance.WaterPipes = autoToggle ? !ModConfig.Instance.WaterPipes : enable;
-                        ToggleHelper.UpdateWaterPipes(ModConfig.Instance.WaterPipes);
-                        break;
-                    case 15:
-                        ModConfig.Instance.HeatingPipes = autoToggle ? !ModConfig.Instance.HeatingPipes : enable;
-                        ToggleHelper.UpdateHeatingPipes(ModConfig.Instance.HeatingPipes);
-                        break;
-                    case 16:
                         ModConfig.Instance.DefaultToolColors = autoToggle ? !ModConfig.Instance.DefaultToolColors : enable;
                         ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColors, _defaultValidColor, _defaultWarningColor, _defaultErrorColor);
                         break;
-                    case 17:
+                    case 14:
                         ModConfig.Instance.DefaultToolInfo = autoToggle ? !ModConfig.Instance.DefaultToolInfo : enable;
                         break;
-                    case 18:
+                    case 15:
                         ModConfig.Instance.DefaultToolExtraInfo = autoToggle ? !ModConfig.Instance.DefaultToolExtraInfo : enable;
                         break;
                     default:

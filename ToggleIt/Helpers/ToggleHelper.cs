@@ -1,7 +1,6 @@
 ﻿using ColossalFramework;
 using ColossalFramework.UI;
 using System;
-using System.Reflection;
 using UnityEngine;
 
 namespace ToggleIt.Helpers
@@ -162,41 +161,6 @@ namespace ToggleIt.Helpers
             catch (Exception e)
             {
                 Debug.Log("[Toggle It!] ToggleHelper:UpdateDistrictIcons -> Exception: " + e.Message);
-            }
-        }
-        public static void UpdateTunnels(bool enableTunnels)
-        {
-            try
-            {
-                Singleton<TransportManager>.instance.TunnelsVisible = enableTunnels;
-            }
-            catch (Exception e)
-            {
-                Debug.Log("[Toggle It!] ToggleHelper:UpdateTunnels -> Exception: " + e.Message);
-            }
-        }
-
-        public static void UpdateWaterPipes(bool enableWaterPipes)
-        {
-            try
-            {
-                Singleton<WaterManager>.instance.WaterMapVisible = enableWaterPipes;
-            }
-            catch (Exception e)
-            {
-                Debug.Log("[Toggle It!] ToggleHelper:UpdateWaterPipes -> Exception: " + e.Message);
-            }
-        }
-
-        public static void UpdateHeatingPipes(bool enableHeatingPipes)
-        {
-            try
-            {
-                Singleton<WaterManager>.instance.HeatingMapVisible = enableHeatingPipes;
-            }
-            catch (Exception e)
-            {
-                Debug.Log("[Toggle It!] ToggleHelper:UpdateHeatingPipes -> Exception: " + e.Message);
             }
         }
 

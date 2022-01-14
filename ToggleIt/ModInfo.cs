@@ -36,9 +36,6 @@ namespace ToggleIt
             "District Zones",
             "District Names",
             "District Icons",
-            "Tunnels",
-            "Water Pipes",
-            "Heating Pipes",
             "Tool Colors",
             "Tool Info",
             "Tool Extra Info"
@@ -61,10 +58,7 @@ namespace ToggleIt
             12,
             13,
             14,
-            15,
-            16,
-            17,
-            18
+            15
         };
 
         public static readonly string[] KeymappingLabels =
@@ -168,6 +162,13 @@ namespace ToggleIt
             group.AddButton("Reset Positioning of Toggle Panel", () =>
             {
                 ModProperties.Instance.ResetPanelPosition();
+            });
+
+            group.AddSpace(10);
+
+            group.AddButton("Reset Toggles", () =>
+            {
+                ModProperties.Instance.ResetToggles();
             });
 
             group = helper.AddGroup("Toggles");

@@ -11,7 +11,7 @@
         public int[] Keymappings { get; set; } = { 1, 2, 3, 4, 5, 6 };
         public bool AutomaticInfoViews { get; set; } = true;
         public bool NotificationIcons { get; set; } = true;
-        public bool RoadNames { get; set; } = false;
+        public bool RoadNames { get; set; } = true;
         public bool Buildings { get; set; } = true;
         public bool BorderLines { get; set; } = true;
         public bool ContourLines { get; set; } = false;
@@ -21,9 +21,6 @@
         public bool DistrictZones { get; set; } = false;
         public bool DistrictNames { get; set; } = true;
         public bool DistrictIcons { get; set; } = true;
-        public bool Tunnels { get; set; } = false;
-        public bool WaterPipes { get; set; } = false;
-        public bool HeatingPipes { get; set; } = false;
         public bool DefaultToolColors { get; set; } = true;
         public bool DefaultToolInfo { get; set; } = true;
         public bool DefaultToolExtraInfo { get; set; } = true;
