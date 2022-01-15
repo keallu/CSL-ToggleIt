@@ -14,8 +14,6 @@ namespace ToggleIt
             try
             {
                 ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
-                ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
-                ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
             }
             catch (Exception e)
             {
@@ -50,7 +48,6 @@ namespace ToggleIt
             try
             {
                 ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
-                ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
             }
             catch (Exception e)
             {
@@ -85,7 +82,6 @@ namespace ToggleIt
             try
             {
                 ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
-                ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
             }
             catch (Exception e)
             {
@@ -120,8 +116,6 @@ namespace ToggleIt
             try
             {
                 ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
-                ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
-                ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
             }
             catch (Exception e)
             {
@@ -156,8 +150,6 @@ namespace ToggleIt
             try
             {
                 ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
-                ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
-                ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
             }
             catch (Exception e)
             {
@@ -192,8 +184,6 @@ namespace ToggleIt
             try
             {
                 ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
-                ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
-                ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
             }
             catch (Exception e)
             {
