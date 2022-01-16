@@ -1,5 +1,6 @@
 ﻿using CitiesHarmony.API;
 using ICities;
+using System.Reflection;
 
 namespace ToggleIt
 {
@@ -148,7 +149,9 @@ namespace ToggleIt
             bool selected;
             int selectedValue;
 
-            group = helper.AddGroup(Name);
+            AssemblyName assemblyName = Assembly.GetExecutingAssembly().GetName();
+
+            group = helper.AddGroup(Name + " - " + assemblyName.Version.Major + "." + assemblyName.Version.Minor);
 
             selected = ModConfig.Instance.ShowTogglePanel;
             group.AddCheckbox("Show Toggle Panel", selected, sel =>

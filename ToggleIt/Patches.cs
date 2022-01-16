@@ -311,6 +311,7 @@ namespace ToggleIt
 
                     if (__instance.m_freeCamera)
                     {
+                        ToggleHelper.UpdateRoadNames(false);
                         ToggleHelper.UpdateBuildings(true);
                         ToggleHelper.UpdateContourLines(false);
                         ToggleHelper.UpdateZoning(false);
@@ -318,6 +319,7 @@ namespace ToggleIt
                     }
                     else
                     {
+                        ToggleHelper.UpdateRoadNames(ModConfig.Instance.RoadNames);
                         ToggleHelper.UpdateBuildings(ModConfig.Instance.Buildings);
                         ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
                         ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
@@ -341,6 +343,7 @@ namespace ToggleIt
             {
                 if (!visible)
                 {
+                    ToggleHelper.UpdateRoadNames(false);
                     ToggleHelper.UpdateBuildings(true);
                     ToggleHelper.UpdateContourLines(false);
                     ToggleHelper.UpdateZoning(false);
@@ -348,6 +351,7 @@ namespace ToggleIt
                 }
                 else
                 {
+                    ToggleHelper.UpdateRoadNames(ModConfig.Instance.RoadNames);
                     ToggleHelper.UpdateBuildings(ModConfig.Instance.Buildings);
                     ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
                     ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
