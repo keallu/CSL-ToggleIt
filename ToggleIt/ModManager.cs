@@ -12,6 +12,11 @@ namespace ToggleIt
 
         private UIButton _esc;
 
+        private UITextureAtlas _defaultIngameTextureAtlas;
+        private Color _defaultValidColor;
+        private Color _defaultWarningColor;
+        private Color _defaultErrorColor;
+
         private UIPanel _togglePanel;
         private UIDragHandle _toggleDragHandle;
         private UIPanel _toggleInnerPanel;
@@ -38,7 +43,7 @@ namespace ToggleIt
         {
             try
             {
-                ModProperties.Instance.DefaultIngameTextureAtlas = Singleton<DistrictManager>.instance.m_properties.m_areaIconAtlas;
+                _defaultIngameTextureAtlas = Singleton<DistrictManager>.instance.m_properties.m_areaIconAtlas;
 
                 ModProperties.Instance.DefaultZoneEdgeColor = Shader.GetGlobalColor("_ZoneEdgeColor");
                 ModProperties.Instance.DefaultZoneEdgeColorInfo = Shader.GetGlobalColor("_ZoneEdgeColorInfo");
@@ -48,9 +53,9 @@ namespace ToggleIt
                 ModProperties.Instance.DefaultZoneFillColorInfo = Shader.GetGlobalColor("_ZoneFillColorInfo");
 
                 ToolController toolController = ToolsModifierControl.toolController;
-                ModProperties.Instance.DefaultValidColor = toolController.m_validColor;
-                ModProperties.Instance.DefaultWarningColor = toolController.m_warningColor;
-                ModProperties.Instance.DefaultErrorColor = toolController.m_errorColor;
+                _defaultValidColor = toolController.m_validColor;
+                _defaultWarningColor = toolController.m_warningColor;
+                _defaultErrorColor = toolController.m_errorColor;
 
                 if (ModConfig.Instance.PositionX == 0.0f)
                 {
@@ -354,11 +359,11 @@ namespace ToggleIt
                         break;
                     case 12:
                         ModConfig.Instance.DistrictIcons = autoToggle ? !ModConfig.Instance.DistrictIcons : enable;
-                        ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                        ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons, _defaultIngameTextureAtlas);
                         break;
                     case 13:
                         ModConfig.Instance.DefaultToolColor = autoToggle ? !ModConfig.Instance.DefaultToolColor : enable;
-                        ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
+                        ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor, _defaultValidColor, _defaultWarningColor, _defaultErrorColor);
                         break;
                     case 14:
                         ModConfig.Instance.DefaultToolInfo = autoToggle ? !ModConfig.Instance.DefaultToolInfo : enable;

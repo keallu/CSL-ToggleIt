@@ -1,4 +1,5 @@
 ﻿using ColossalFramework;
+using ColossalFramework.UI;
 using System;
 using UnityEngine;
 
@@ -139,7 +140,7 @@ namespace ToggleIt.Helpers
             }
         }
 
-        public static void UpdateDistrictIcons(bool enableDistrictIcons)
+        public static void UpdateDistrictIcons(bool enableDistrictIcons, UITextureAtlas defaultIngameTextureAtlas)
         {
             try
             {
@@ -147,7 +148,7 @@ namespace ToggleIt.Helpers
 
                 if (enableDistrictIcons)
                 {
-                    districtManager.m_properties.m_areaIconAtlas = ModProperties.Instance.DefaultIngameTextureAtlas;
+                    districtManager.m_properties.m_areaIconAtlas = defaultIngameTextureAtlas;
                 }
                 else
                 {
@@ -163,7 +164,7 @@ namespace ToggleIt.Helpers
             }
         }
 
-        public static void UpdateDefaultToolColor(bool enableDefaultToolColors)
+        public static void UpdateDefaultToolColor(bool enableDefaultToolColors, Color defaultValidColor, Color defaultWarningColor, Color defaultErrorColor)
         {
             try
             {
@@ -171,9 +172,9 @@ namespace ToggleIt.Helpers
 
                 if (toolController != null)
                 {
-                    toolController.m_validColor.a = enableDefaultToolColors ? ModProperties.Instance.DefaultValidColor.a : 0f;
-                    toolController.m_warningColor.a = enableDefaultToolColors ? ModProperties.Instance.DefaultWarningColor.a : 0f;
-                    toolController.m_errorColor.a = enableDefaultToolColors ? ModProperties.Instance.DefaultErrorColor.a : 0f;
+                    toolController.m_validColor.a = enableDefaultToolColors ? defaultValidColor.a : 0f;
+                    toolController.m_warningColor.a = enableDefaultToolColors ? defaultWarningColor.a : 0f;
+                    toolController.m_errorColor.a = enableDefaultToolColors ? defaultErrorColor.a : 0f;
                 }
             }
             catch (Exception e)
