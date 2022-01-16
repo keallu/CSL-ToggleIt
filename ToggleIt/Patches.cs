@@ -29,9 +29,18 @@ namespace ToggleIt
         {
             try
             {
+                ToggleHelper.UpdateNotificationIcons(ModConfig.Instance.NotificationIcons);
+                ToggleHelper.UpdateRoadNames(ModConfig.Instance.RoadNames);
+                ToggleHelper.UpdateBuildings(ModConfig.Instance.Buildings);
+                ToggleHelper.UpdateBorderLines(ModConfig.Instance.BorderLines);
                 ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
                 ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
+                ToggleHelper.UpdateZoningGrid(ModConfig.Instance.ZoningGrid);
+                ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                 ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
+                ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
+                ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
             }
             catch (Exception e)
             {
@@ -63,9 +72,18 @@ namespace ToggleIt
         {
             try
             {
+                ToggleHelper.UpdateNotificationIcons(ModConfig.Instance.NotificationIcons);
+                ToggleHelper.UpdateRoadNames(ModConfig.Instance.RoadNames);
+                ToggleHelper.UpdateBuildings(ModConfig.Instance.Buildings);
+                ToggleHelper.UpdateBorderLines(ModConfig.Instance.BorderLines);
                 ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
                 ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
+                ToggleHelper.UpdateZoningGrid(ModConfig.Instance.ZoningGrid);
+                ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                 ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
+                ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
+                ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
             }
             catch (Exception e)
             {
@@ -97,9 +115,18 @@ namespace ToggleIt
         {
             try
             {
+                ToggleHelper.UpdateNotificationIcons(ModConfig.Instance.NotificationIcons);
+                ToggleHelper.UpdateRoadNames(ModConfig.Instance.RoadNames);
+                ToggleHelper.UpdateBuildings(ModConfig.Instance.Buildings);
+                ToggleHelper.UpdateBorderLines(ModConfig.Instance.BorderLines);
                 ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
                 ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
+                ToggleHelper.UpdateZoningGrid(ModConfig.Instance.ZoningGrid);
+                ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                 ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
+                ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
+                ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
             }
             catch (Exception e)
             {
@@ -131,9 +158,18 @@ namespace ToggleIt
         {
             try
             {
+                ToggleHelper.UpdateNotificationIcons(ModConfig.Instance.NotificationIcons);
+                ToggleHelper.UpdateRoadNames(ModConfig.Instance.RoadNames);
+                ToggleHelper.UpdateBuildings(ModConfig.Instance.Buildings);
+                ToggleHelper.UpdateBorderLines(ModConfig.Instance.BorderLines);
                 ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
                 ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
+                ToggleHelper.UpdateZoningGrid(ModConfig.Instance.ZoningGrid);
+                ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                 ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
+                ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
+                ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
             }
             catch (Exception e)
             {
@@ -165,9 +201,18 @@ namespace ToggleIt
         {
             try
             {
+                ToggleHelper.UpdateNotificationIcons(ModConfig.Instance.NotificationIcons);
+                ToggleHelper.UpdateRoadNames(ModConfig.Instance.RoadNames);
+                ToggleHelper.UpdateBuildings(ModConfig.Instance.Buildings);
+                ToggleHelper.UpdateBorderLines(ModConfig.Instance.BorderLines);
                 ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
                 ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
+                ToggleHelper.UpdateZoningGrid(ModConfig.Instance.ZoningGrid);
+                ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                 ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
+                ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
+                ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
             }
             catch (Exception e)
             {
@@ -199,9 +244,18 @@ namespace ToggleIt
         {
             try
             {
+                ToggleHelper.UpdateNotificationIcons(ModConfig.Instance.NotificationIcons);
+                ToggleHelper.UpdateRoadNames(ModConfig.Instance.RoadNames);
+                ToggleHelper.UpdateBuildings(ModConfig.Instance.Buildings);
+                ToggleHelper.UpdateBorderLines(ModConfig.Instance.BorderLines);
                 ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
                 ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
+                ToggleHelper.UpdateZoningGrid(ModConfig.Instance.ZoningGrid);
+                ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                 ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
+                ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
+                ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
             }
             catch (Exception e)
             {
@@ -251,7 +305,7 @@ namespace ToggleIt
         {
             try
             {
-                return ModConfig.Instance.AutomaticInfoViews;
+                return ModConfig.Instance.AutomaticInfoView;
             }
             catch (Exception e)
             {
@@ -319,11 +373,18 @@ namespace ToggleIt
                     }
                     else
                     {
+                        ToggleHelper.UpdateNotificationIcons(ModConfig.Instance.NotificationIcons);
                         ToggleHelper.UpdateRoadNames(ModConfig.Instance.RoadNames);
                         ToggleHelper.UpdateBuildings(ModConfig.Instance.Buildings);
+                        ToggleHelper.UpdateBorderLines(ModConfig.Instance.BorderLines);
                         ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
                         ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
+                        ToggleHelper.UpdateZoningGrid(ModConfig.Instance.ZoningGrid);
+                        ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                         ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
+                        ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
+                        ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                        ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
                     }
                 }
             }
@@ -351,12 +412,19 @@ namespace ToggleIt
                 }
                 else
                 {
+                    ToggleHelper.UpdateNotificationIcons(ModConfig.Instance.NotificationIcons);
                     ToggleHelper.UpdateRoadNames(ModConfig.Instance.RoadNames);
                     ToggleHelper.UpdateBuildings(ModConfig.Instance.Buildings);
+                    ToggleHelper.UpdateBorderLines(ModConfig.Instance.BorderLines);
                     ToggleHelper.UpdateContourLines(ModConfig.Instance.ContourLines);
                     ToggleHelper.UpdateZoning(ModConfig.Instance.Zoning);
+                    ToggleHelper.UpdateZoningGrid(ModConfig.Instance.ZoningGrid);
+                    ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                     ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
-                }
+                    ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
+                    ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                    ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
+    }
             }
             catch (Exception e)
             {

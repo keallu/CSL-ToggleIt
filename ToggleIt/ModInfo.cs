@@ -25,7 +25,7 @@ namespace ToggleIt
         public static readonly string[] ToggleLabels =
         {
             "None",
-            "Automatic Info Views",
+            "Automatic Info View",
             "Notification Icons",
             "Road Names",
             "Buildings",
@@ -37,7 +37,7 @@ namespace ToggleIt
             "District Zones",
             "District Names",
             "District Icons",
-            "Tool Colors",
+            "Tool Color",
             "Tool Info",
             "Tool Extra Info"
         };
@@ -169,9 +169,9 @@ namespace ToggleIt
 
             group.AddSpace(10);
 
-            group.AddButton("Reset Toggles", () =>
+            group.AddButton("Reset All Toggles", () =>
             {
-                ModProperties.Instance.ResetToggles();
+                ModConfig.Instance.Reset();
             });
 
             group = helper.AddGroup("Toggles");

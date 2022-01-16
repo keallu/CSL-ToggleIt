@@ -1,4 +1,4 @@
-﻿using System;
+﻿using ColossalFramework.UI;
 using UnityEngine;
 
 namespace ToggleIt
@@ -7,6 +7,17 @@ namespace ToggleIt
     {
         public float PanelDefaultPositionX;
         public float PanelDefaultPositionY;
+
+        public UITextureAtlas DefaultIngameTextureAtlas;
+        public Color DefaultZoneEdgeColor;
+        public Color DefaultZoneEdgeColorInfo;
+        public Color DefaultZoneEdgeColorOccupiedColor;
+        public Color DefaultZoneEdgeColorOccupiedInfo;
+        public Color DefaultZoneFillColor;
+        public Color DefaultZoneFillColorInfo;
+        public Color DefaultValidColor;
+        public Color DefaultWarningColor;
+        public Color DefaultErrorColor;
 
         private static ModProperties instance;
 
@@ -20,43 +31,9 @@ namespace ToggleIt
 
         public void ResetPanelPosition()
         {
-            try
-            {
-                ModConfig.Instance.PositionX = PanelDefaultPositionX;
-                ModConfig.Instance.PositionY = PanelDefaultPositionY;
-                ModConfig.Instance.Save();
-            }
-            catch (Exception e)
-            {
-                Debug.Log("[Toggle It!] ModProperties:ResetPanelPosition -> Exception: " + e.Message);
-            }
-        }
-
-        public void ResetToggles()
-        {
-            try
-            {
-                ModConfig.Instance.AutomaticInfoViews = true;
-                ModConfig.Instance.NotificationIcons = true;
-                ModConfig.Instance.RoadNames = true;
-                ModConfig.Instance.Buildings = true;
-                ModConfig.Instance.BorderLines = true;
-                ModConfig.Instance.ContourLines = false;
-                ModConfig.Instance.Zoning = false;
-                ModConfig.Instance.ZoningGrid = true;
-                ModConfig.Instance.ZoningColor = true;
-                ModConfig.Instance.DistrictZones = false;
-                ModConfig.Instance.DistrictNames = true;
-                ModConfig.Instance.DistrictIcons = true;
-                ModConfig.Instance.DefaultToolColors = true;
-                ModConfig.Instance.DefaultToolInfo = true;
-                ModConfig.Instance.DefaultToolExtraInfo = true;
-                ModConfig.Instance.Save();
-            }
-            catch (Exception e)
-            {
-                Debug.Log("[Toggle It!] ModProperties:ResetToggles -> Exception: " + e.Message);
-            }
+            ModConfig.Instance.PositionX = PanelDefaultPositionX;
+            ModConfig.Instance.PositionY = PanelDefaultPositionY;
+            ModConfig.Instance.Save();
         }
     }
 }

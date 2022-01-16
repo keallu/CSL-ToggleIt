@@ -9,7 +9,7 @@
         public float PositionY { get; set; }
         public int[] Toggles { get; set; } = { 1, 2, 3, 4, 5, 6 };
         public int[] Keymappings { get; set; } = { 1, 2, 3, 4, 5, 6 };
-        public bool AutomaticInfoViews { get; set; } = true;
+        public bool AutomaticInfoView { get; set; } = true;
         public bool NotificationIcons { get; set; } = true;
         public bool RoadNames { get; set; } = true;
         public bool Buildings { get; set; } = true;
@@ -21,7 +21,7 @@
         public bool DistrictZones { get; set; } = false;
         public bool DistrictNames { get; set; } = true;
         public bool DistrictIcons { get; set; } = true;
-        public bool DefaultToolColors { get; set; } = true;
+        public bool DefaultToolColor { get; set; } = true;
         public bool DefaultToolInfo { get; set; } = true;
         public bool DefaultToolExtraInfo { get; set; } = true;
 
@@ -38,6 +38,25 @@
 
                 return instance;
             }
+        }
+        public void Reset()
+        {
+            AutomaticInfoView = true;
+            NotificationIcons = true;
+            RoadNames = true;
+            Buildings = true;
+            BorderLines = true;
+            ContourLines = false;
+            Zoning = false;
+            ZoningGrid = true;
+            ZoningColor = true;
+            DistrictZones = false;
+            DistrictNames = true;
+            DistrictIcons = true;
+            DefaultToolColor = true;
+            DefaultToolInfo = true;
+            DefaultToolExtraInfo = true;
+            Save();
         }
 
         public void Save()

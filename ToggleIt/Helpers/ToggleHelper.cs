@@ -1,5 +1,4 @@
 ﻿using ColossalFramework;
-using ColossalFramework.UI;
 using System;
 using UnityEngine;
 
@@ -87,14 +86,14 @@ namespace ToggleIt.Helpers
             }
         }
 
-        public static void UpdateZoningGrid(bool enableZoningGrid, Color defaultZoneEdgeColor, Color defaultZoneEdgeColorInfo, Color defaultZoneEdgeColorOccupiedColor, Color defaultZoneEdgeColorOccupiedInfo)
+        public static void UpdateZoningGrid(bool enableZoningGrid)
         {
             try
             {
-                Shader.SetGlobalColor("_ZoneEdgeColor", enableZoningGrid ? defaultZoneEdgeColor : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneEdgeColorInfo", enableZoningGrid ? defaultZoneEdgeColorInfo : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneEdgeColorOccupied", enableZoningGrid ? defaultZoneEdgeColorOccupiedColor : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneEdgeColorOccupiedInfo", enableZoningGrid ? defaultZoneEdgeColorOccupiedInfo : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColor", enableZoningGrid ? ModProperties.Instance.DefaultZoneEdgeColor : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColorInfo", enableZoningGrid ? ModProperties.Instance.DefaultZoneEdgeColorInfo : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColorOccupied", enableZoningGrid ? ModProperties.Instance.DefaultZoneEdgeColorOccupiedColor : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColorOccupiedInfo", enableZoningGrid ? ModProperties.Instance.DefaultZoneEdgeColorOccupiedInfo : new Color(0f, 0f, 0f, 0f));
             }
             catch (Exception e)
             {
@@ -102,12 +101,12 @@ namespace ToggleIt.Helpers
             }
         }
 
-        public static void UpdateZoningColor(bool enableZoningColor, Color defaultZoneFillColor, Color defaultZoneFillColorInfo)
+        public static void UpdateZoningColor(bool enableZoningColor)
         {
             try
             {
-                Shader.SetGlobalColor("_ZoneFillColor", enableZoningColor ? defaultZoneFillColor : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneFillColorInfo", enableZoningColor ? defaultZoneFillColorInfo : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneFillColor", enableZoningColor ? ModProperties.Instance.DefaultZoneFillColor : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneFillColorInfo", enableZoningColor ? ModProperties.Instance.DefaultZoneFillColorInfo : new Color(0f, 0f, 0f, 0f));
             }
             catch (Exception e)
             {
@@ -140,7 +139,7 @@ namespace ToggleIt.Helpers
             }
         }
 
-        public static void UpdateDistrictIcons(bool enableDistrictIcons, UITextureAtlas defaultIngameTextureAtlas)
+        public static void UpdateDistrictIcons(bool enableDistrictIcons)
         {
             try
             {
@@ -148,7 +147,7 @@ namespace ToggleIt.Helpers
 
                 if (enableDistrictIcons)
                 {
-                    districtManager.m_properties.m_areaIconAtlas = defaultIngameTextureAtlas;
+                    districtManager.m_properties.m_areaIconAtlas = ModProperties.Instance.DefaultIngameTextureAtlas;
                 }
                 else
                 {
@@ -164,7 +163,7 @@ namespace ToggleIt.Helpers
             }
         }
 
-        public static void UpdateDefaultToolColor(bool enableDefaultToolColors, Color defaultValidColor, Color defaultWarningColor, Color defaultErrorColor)
+        public static void UpdateDefaultToolColor(bool enableDefaultToolColors)
         {
             try
             {
@@ -172,9 +171,9 @@ namespace ToggleIt.Helpers
 
                 if (toolController != null)
                 {
-                    toolController.m_validColor.a = enableDefaultToolColors ? defaultValidColor.a : 0f;
-                    toolController.m_warningColor.a = enableDefaultToolColors ? defaultWarningColor.a : 0f;
-                    toolController.m_errorColor.a = enableDefaultToolColors ? defaultErrorColor.a : 0f;
+                    toolController.m_validColor.a = enableDefaultToolColors ? ModProperties.Instance.DefaultValidColor.a : 0f;
+                    toolController.m_warningColor.a = enableDefaultToolColors ? ModProperties.Instance.DefaultWarningColor.a : 0f;
+                    toolController.m_errorColor.a = enableDefaultToolColors ? ModProperties.Instance.DefaultErrorColor.a : 0f;
                 }
             }
             catch (Exception e)

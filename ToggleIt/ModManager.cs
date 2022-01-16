@@ -17,17 +17,6 @@ namespace ToggleIt
         private UIPanel _toggleInnerPanel;
         private UICheckBox[] _toggleCheckboxes;
 
-        private UITextureAtlas _defaultIngameTextureAtlas;
-        private Color _defaultZoneEdgeColor;
-        private Color _defaultZoneEdgeColorInfo;
-        private Color _defaultZoneEdgeColorOccupiedColor;
-        private Color _defaultZoneEdgeColorOccupiedInfo;
-        private Color _defaultZoneFillColor;
-        private Color _defaultZoneFillColorInfo;
-        private Color _defaultValidColor;
-        private Color _defaultWarningColor;
-        private Color _defaultErrorColor;
-
         public void Awake()
         {
             try
@@ -49,19 +38,19 @@ namespace ToggleIt
         {
             try
             {
-                _defaultIngameTextureAtlas = Singleton<DistrictManager>.instance.m_properties.m_areaIconAtlas;
+                ModProperties.Instance.DefaultIngameTextureAtlas = Singleton<DistrictManager>.instance.m_properties.m_areaIconAtlas;
 
-                _defaultZoneEdgeColor = Shader.GetGlobalColor("_ZoneEdgeColor");
-                _defaultZoneEdgeColorInfo = Shader.GetGlobalColor("_ZoneEdgeColorInfo");
-                _defaultZoneEdgeColorOccupiedColor = Shader.GetGlobalColor("_ZoneEdgeColorOccupied");
-                _defaultZoneEdgeColorOccupiedInfo = Shader.GetGlobalColor("_ZoneEdgeColorOccupiedInfo");
-                _defaultZoneFillColor = Shader.GetGlobalColor("_ZoneFillColor");
-                _defaultZoneFillColorInfo = Shader.GetGlobalColor("_ZoneFillColorInfo");
+                ModProperties.Instance.DefaultZoneEdgeColor = Shader.GetGlobalColor("_ZoneEdgeColor");
+                ModProperties.Instance.DefaultZoneEdgeColorInfo = Shader.GetGlobalColor("_ZoneEdgeColorInfo");
+                ModProperties.Instance.DefaultZoneEdgeColorOccupiedColor = Shader.GetGlobalColor("_ZoneEdgeColorOccupied");
+                ModProperties.Instance.DefaultZoneEdgeColorOccupiedInfo = Shader.GetGlobalColor("_ZoneEdgeColorOccupiedInfo");
+                ModProperties.Instance.DefaultZoneFillColor = Shader.GetGlobalColor("_ZoneFillColor");
+                ModProperties.Instance.DefaultZoneFillColorInfo = Shader.GetGlobalColor("_ZoneFillColorInfo");
 
                 ToolController toolController = ToolsModifierControl.toolController;
-                _defaultValidColor = toolController.m_validColor;
-                _defaultWarningColor = toolController.m_warningColor;
-                _defaultErrorColor = toolController.m_errorColor;
+                ModProperties.Instance.DefaultValidColor = toolController.m_validColor;
+                ModProperties.Instance.DefaultWarningColor = toolController.m_warningColor;
+                ModProperties.Instance.DefaultErrorColor = toolController.m_errorColor;
 
                 if (ModConfig.Instance.PositionX == 0.0f)
                 {
@@ -239,7 +228,7 @@ namespace ToggleIt
                 switch (toggle)
                 {
                     case 1:
-                        return ModConfig.Instance.AutomaticInfoViews;
+                        return ModConfig.Instance.AutomaticInfoView;
                     case 2:
                         return ModConfig.Instance.NotificationIcons;
                     case 3:
@@ -263,7 +252,7 @@ namespace ToggleIt
                     case 12:
                         return ModConfig.Instance.DistrictIcons;
                     case 13:
-                        return ModConfig.Instance.DefaultToolColors;
+                        return ModConfig.Instance.DefaultToolColor;
                     case 14:
                         return ModConfig.Instance.DefaultToolInfo;
                     case 15:
@@ -321,7 +310,7 @@ namespace ToggleIt
                 switch (toggle)
                 {
                     case 1:
-                        ModConfig.Instance.AutomaticInfoViews = autoToggle ? !ModConfig.Instance.AutomaticInfoViews : enable;
+                        ModConfig.Instance.AutomaticInfoView = autoToggle ? !ModConfig.Instance.AutomaticInfoView : enable;
                         break;
                     case 2:
                         ModConfig.Instance.NotificationIcons = autoToggle ? !ModConfig.Instance.NotificationIcons : enable;
@@ -349,11 +338,11 @@ namespace ToggleIt
                         break;
                     case 8:
                         ModConfig.Instance.ZoningGrid = autoToggle ? !ModConfig.Instance.ZoningGrid : enable;
-                        ToggleHelper.UpdateZoningGrid(ModConfig.Instance.ZoningGrid, _defaultZoneEdgeColor, _defaultZoneEdgeColorInfo, _defaultZoneEdgeColorOccupiedColor, _defaultZoneEdgeColorOccupiedInfo);
+                        ToggleHelper.UpdateZoningGrid(ModConfig.Instance.ZoningGrid);
                         break;
                     case 9:
                         ModConfig.Instance.ZoningColor = autoToggle ? !ModConfig.Instance.ZoningColor : enable;
-                        ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor, _defaultZoneFillColor, _defaultZoneFillColorInfo);
+                        ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                         break;
                     case 10:
                         ModConfig.Instance.DistrictZones = autoToggle ? !ModConfig.Instance.DistrictZones : enable;
@@ -365,11 +354,11 @@ namespace ToggleIt
                         break;
                     case 12:
                         ModConfig.Instance.DistrictIcons = autoToggle ? !ModConfig.Instance.DistrictIcons : enable;
-                        ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons, _defaultIngameTextureAtlas);
+                        ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
                         break;
                     case 13:
-                        ModConfig.Instance.DefaultToolColors = autoToggle ? !ModConfig.Instance.DefaultToolColors : enable;
-                        ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColors, _defaultValidColor, _defaultWarningColor, _defaultErrorColor);
+                        ModConfig.Instance.DefaultToolColor = autoToggle ? !ModConfig.Instance.DefaultToolColor : enable;
+                        ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
                         break;
                     case 14:
                         ModConfig.Instance.DefaultToolInfo = autoToggle ? !ModConfig.Instance.DefaultToolInfo : enable;
