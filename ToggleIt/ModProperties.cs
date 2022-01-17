@@ -8,16 +8,12 @@ namespace ToggleIt
         public float PanelDefaultPositionX;
         public float PanelDefaultPositionY;
 
-        //public UITextureAtlas DefaultIngameTextureAtlas;
         public Color DefaultZoneEdgeColor;
         public Color DefaultZoneEdgeColorInfo;
         public Color DefaultZoneEdgeColorOccupiedColor;
         public Color DefaultZoneEdgeColorOccupiedInfo;
         public Color DefaultZoneFillColor;
         public Color DefaultZoneFillColorInfo;
-        //public Color DefaultValidColor;
-        //public Color DefaultWarningColor;
-        //public Color DefaultErrorColor;
 
         private static ModProperties instance;
 

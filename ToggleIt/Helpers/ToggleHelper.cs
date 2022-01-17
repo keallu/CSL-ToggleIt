@@ -140,7 +140,7 @@ namespace ToggleIt.Helpers
             }
         }
 
-        public static void UpdateDistrictIcons(bool enableDistrictIcons, UITextureAtlas defaultIngameTextureAtlas)
+        public static void UpdateDistrictIcons(bool enableDistrictIcons)
         {
             try
             {
@@ -148,7 +148,7 @@ namespace ToggleIt.Helpers
 
                 if (enableDistrictIcons)
                 {
-                    districtManager.m_properties.m_areaIconAtlas = defaultIngameTextureAtlas;
+                    districtManager.m_properties.m_areaIconAtlas = UIView.GetAView().defaultAtlas;
                 }
                 else
                 {
@@ -164,7 +164,7 @@ namespace ToggleIt.Helpers
             }
         }
 
-        public static void UpdateDefaultToolColor(bool enableDefaultToolColors, Color defaultValidColor, Color defaultWarningColor, Color defaultErrorColor)
+        public static void UpdateDefaultToolColor(bool enableDefaultToolColors)
         {
             try
             {
@@ -172,9 +172,9 @@ namespace ToggleIt.Helpers
 
                 if (toolController != null)
                 {
-                    toolController.m_validColor.a = enableDefaultToolColors ? defaultValidColor.a : 0f;
-                    toolController.m_warningColor.a = enableDefaultToolColors ? defaultWarningColor.a : 0f;
-                    toolController.m_errorColor.a = enableDefaultToolColors ? defaultErrorColor.a : 0f;
+                    toolController.m_validColor.a = enableDefaultToolColors ? 1f : 0f;
+                    toolController.m_warningColor.a = enableDefaultToolColors ? 1f : 0f;
+                    toolController.m_errorColor.a = enableDefaultToolColors ? 1f : 0f;
                 }
             }
             catch (Exception e)

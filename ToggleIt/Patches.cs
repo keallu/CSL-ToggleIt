@@ -39,8 +39,8 @@ namespace ToggleIt
                 ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                 ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
                 ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
-                //ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
-                //ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
+                ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
             }
             catch (Exception e)
             {
@@ -82,8 +82,8 @@ namespace ToggleIt
                 ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                 ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
                 ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
-                //ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
-                //ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
+                ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
             }
             catch (Exception e)
             {
@@ -125,8 +125,8 @@ namespace ToggleIt
                 ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                 ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
                 ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
-                //ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
-                //ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
+                ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
             }
             catch (Exception e)
             {
@@ -168,8 +168,8 @@ namespace ToggleIt
                 ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                 ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
                 ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
-                //ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
-                //ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
+                ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
             }
             catch (Exception e)
             {
@@ -211,8 +211,8 @@ namespace ToggleIt
                 ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                 ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
                 ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
-                //ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
-                //ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
+                ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
             }
             catch (Exception e)
             {
@@ -254,8 +254,8 @@ namespace ToggleIt
                 ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                 ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
                 ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
-                //ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
-                //ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
+                ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
             }
             catch (Exception e)
             {
@@ -383,8 +383,8 @@ namespace ToggleIt
                         ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                         ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
                         ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
-                        //ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
-                        //ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
+                        ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                        ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
                     }
                 }
             }
@@ -422,9 +422,9 @@ namespace ToggleIt
                     ToggleHelper.UpdateZoningColor(ModConfig.Instance.ZoningColor);
                     ToggleHelper.UpdateDistrictZones(ModConfig.Instance.DistrictZones);
                     ToggleHelper.UpdateDistrictNames(ModConfig.Instance.DistrictNames);
-                    //ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
-                    //ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
-    }
+                    ToggleHelper.UpdateDistrictIcons(ModConfig.Instance.DistrictIcons);
+                    ToggleHelper.UpdateDefaultToolColor(ModConfig.Instance.DefaultToolColor);
+                }
             }
             catch (Exception e)
             {
