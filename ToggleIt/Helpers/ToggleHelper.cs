@@ -87,14 +87,14 @@ namespace ToggleIt.Helpers
             }
         }
 
-        public static void UpdateZoningGrid(bool enableZoningGrid)
+        public static void UpdateZoningGrids(bool enableZoningGrid, Color defaultZoneEdgeColor, Color defaultZoneEdgeColorInfo, Color defaultZoneEdgeColorOccupiedColor, Color defaultZoneEdgeColorOccupiedInfo)
         {
             try
             {
-                Shader.SetGlobalColor("_ZoneEdgeColor", enableZoningGrid ? ModProperties.Instance.DefaultZoneEdgeColor : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneEdgeColorInfo", enableZoningGrid ? ModProperties.Instance.DefaultZoneEdgeColorInfo : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneEdgeColorOccupied", enableZoningGrid ? ModProperties.Instance.DefaultZoneEdgeColorOccupiedColor : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneEdgeColorOccupiedInfo", enableZoningGrid ? ModProperties.Instance.DefaultZoneEdgeColorOccupiedInfo : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColor", enableZoningGrid ? defaultZoneEdgeColor : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColorInfo", enableZoningGrid ? defaultZoneEdgeColorInfo : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColorOccupied", enableZoningGrid ? defaultZoneEdgeColorOccupiedColor : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColorOccupiedInfo", enableZoningGrid ? defaultZoneEdgeColorOccupiedInfo : new Color(0f, 0f, 0f, 0f));
             }
             catch (Exception e)
             {
@@ -102,12 +102,12 @@ namespace ToggleIt.Helpers
             }
         }
 
-        public static void UpdateZoningColor(bool enableZoningColor)
+        public static void UpdateZoningColors(bool enableZoningColor, Color defaultZoneFillColor, Color defaultZoneFillColorInfo)
         {
             try
             {
-                Shader.SetGlobalColor("_ZoneFillColor", enableZoningColor ? ModProperties.Instance.DefaultZoneFillColor : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneFillColorInfo", enableZoningColor ? ModProperties.Instance.DefaultZoneFillColorInfo : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneFillColor", enableZoningColor ? defaultZoneFillColor : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneFillColorInfo", enableZoningColor ? defaultZoneFillColorInfo : new Color(0f, 0f, 0f, 0f));
             }
             catch (Exception e)
             {
@@ -148,7 +148,12 @@ namespace ToggleIt.Helpers
 
                 if (enableDistrictIcons)
                 {
-                    districtManager.m_properties.m_areaIconAtlas = UIView.GetAView().defaultAtlas;
+                    UIView uIView = UIView.GetAView();
+
+                    if (uIView != null)
+                    {
+                        districtManager.m_properties.m_areaIconAtlas = uIView.defaultAtlas;
+                    }
                 }
                 else
                 {
@@ -164,7 +169,7 @@ namespace ToggleIt.Helpers
             }
         }
 
-        public static void UpdateDefaultToolColor(bool enableDefaultToolColors)
+        public static void UpdateDefaultToolColors(bool enableDefaultToolColors)
         {
             try
             {
