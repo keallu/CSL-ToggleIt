@@ -14,7 +14,11 @@ namespace ToggleIt
         {
             try
             {
-                ToggleHelper.UpdateContourLines(true);
+                // Contour Lines
+                if (ToggleManager.Instance.GetById(5).Enabled)
+                {
+                    ToggleHelper.UpdateContourLines(ToggleManager.Instance.GetById(5).On);
+                }
             }
             catch (Exception e)
             {
@@ -46,7 +50,11 @@ namespace ToggleIt
         {
             try
             {
-                ToggleHelper.UpdateContourLines(true);
+                // Contour Lines
+                if (ToggleManager.Instance.GetById(5).Enabled)
+                {
+                    ToggleHelper.UpdateContourLines(ToggleManager.Instance.GetById(5).On);
+                }
             }
             catch (Exception e)
             {
@@ -78,7 +86,11 @@ namespace ToggleIt
         {
             try
             {
-                ToggleHelper.UpdateContourLines(true);
+                // Contour Lines
+                if (ToggleManager.Instance.GetById(5).Enabled)
+                {
+                    ToggleHelper.UpdateContourLines(ToggleManager.Instance.GetById(5).On);
+                }
             }
             catch (Exception e)
             {
@@ -110,7 +122,11 @@ namespace ToggleIt
         {
             try
             {
-                ToggleHelper.UpdateContourLines(true);
+                // Contour Lines
+                if (ToggleManager.Instance.GetById(5).Enabled)
+                {
+                    ToggleHelper.UpdateContourLines(ToggleManager.Instance.GetById(5).On);
+                }
             }
             catch (Exception e)
             {
@@ -142,7 +158,11 @@ namespace ToggleIt
         {
             try
             {
-                ToggleHelper.UpdateContourLines(true);
+                // Contour Lines
+                if (ToggleManager.Instance.GetById(5).Enabled)
+                {
+                    ToggleHelper.UpdateContourLines(ToggleManager.Instance.GetById(5).On);
+                }
             }
             catch (Exception e)
             {
@@ -174,7 +194,11 @@ namespace ToggleIt
         {
             try
             {
-                ToggleHelper.UpdateContourLines(true);
+                // Contour Lines
+                if (ToggleManager.Instance.GetById(5).Enabled)
+                {
+                    ToggleHelper.UpdateContourLines(ToggleManager.Instance.GetById(5).On);
+                }
             }
             catch (Exception e)
             {
@@ -207,7 +231,12 @@ namespace ToggleIt
             try
             {
                 // Tool Info
-                return ToggleManager.Instance.GetById(13).On;
+                if (ToggleManager.Instance.GetById(13).Enabled)
+                {
+                    return ToggleManager.Instance.GetById(13).On;
+                }
+
+                return true;
             }
             catch (Exception e)
             {
@@ -225,7 +254,12 @@ namespace ToggleIt
             try
             {
                 // Tool Extra Info
-                return ToggleManager.Instance.GetById(14).On;
+                if (ToggleManager.Instance.GetById(14).Enabled)
+                {
+                    return ToggleManager.Instance.GetById(14).On;
+                }
+
+                return true;
             }
             catch (Exception e)
             {
@@ -243,7 +277,12 @@ namespace ToggleIt
             try
             {
                 // Automatic Info Views
-                return ToggleManager.Instance.GetById(0).On;
+                if (ToggleManager.Instance.GetById(0).Enabled)
+                {
+                    return ToggleManager.Instance.GetById(0).On;
+                }
+
+                return true;
             }
             catch (Exception e)
             {
