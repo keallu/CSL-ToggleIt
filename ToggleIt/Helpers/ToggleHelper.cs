@@ -87,14 +87,14 @@ namespace ToggleIt.Helpers
             }
         }
 
-        public static void UpdateZoningGrids(bool enableZoningGrid, Color defaultZoneEdgeColor, Color defaultZoneEdgeColorInfo, Color defaultZoneEdgeColorOccupiedColor, Color defaultZoneEdgeColorOccupiedInfo)
+        public static void UpdateZoningGrids(bool enableZoningGrid)
         {
             try
             {
-                Shader.SetGlobalColor("_ZoneEdgeColor", enableZoningGrid ? defaultZoneEdgeColor : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneEdgeColorInfo", enableZoningGrid ? defaultZoneEdgeColorInfo : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneEdgeColorOccupied", enableZoningGrid ? defaultZoneEdgeColorOccupiedColor : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneEdgeColorOccupiedInfo", enableZoningGrid ? defaultZoneEdgeColorOccupiedInfo : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColor", enableZoningGrid ? new Color(0.203f, 0.289f, 0.322f, 1.000f) : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColorInfo", enableZoningGrid ? new Color(0.098f, 0.098f, 0.098f, 1.000f) : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColorOccupied", enableZoningGrid ? new Color(0.048f, 0.080f, 0.102f, 1.000f) : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColorOccupiedInfo", enableZoningGrid ? new Color(0.098f, 0.098f, 0.098f, 0.275f) : new Color(0f, 0f, 0f, 0f));
             }
             catch (Exception e)
             {
@@ -102,12 +102,12 @@ namespace ToggleIt.Helpers
             }
         }
 
-        public static void UpdateZoningColors(bool enableZoningColor, Color defaultZoneFillColor, Color defaultZoneFillColorInfo)
+        public static void UpdateZoningColors(bool enableZoningColor)
         {
             try
             {
-                Shader.SetGlobalColor("_ZoneFillColor", enableZoningColor ? defaultZoneFillColor : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneFillColorInfo", enableZoningColor ? defaultZoneFillColorInfo : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneFillColor", enableZoningColor ? new Color(1.000f, 1.000f, 1.000f, 0.635f) : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneFillColorInfo", enableZoningColor ? new Color(1.000f, 1.000f, 1.000f, 0.000f) : new Color(0f, 0f, 0f, 0f));
             }
             catch (Exception e)
             {

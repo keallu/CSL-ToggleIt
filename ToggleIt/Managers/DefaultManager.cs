@@ -39,12 +39,6 @@ namespace ToggleIt.Managers
                 _defaults.Add("ToolColors", true);
                 _defaults.Add("ToolInfo", true);
                 _defaults.Add("ToolExtraInfo", true);
-                _defaults.Add("ZoneEdgeColor", Shader.GetGlobalColor("_ZoneEdgeColor"));
-                _defaults.Add("ZoneEdgeColorInfo", Shader.GetGlobalColor("_ZoneEdgeColorInfo"));
-                _defaults.Add("ZoneEdgeColorOccupiedColor", Shader.GetGlobalColor("_ZoneEdgeColorOccupied"));
-                _defaults.Add("ZoneEdgeColorOccupiedInfo", Shader.GetGlobalColor("_ZoneEdgeColorOccupiedInfo"));
-                _defaults.Add("ZoneFillColor", Shader.GetGlobalColor("_ZoneFillColor"));
-                _defaults.Add("ZoneFillColorInfo", Shader.GetGlobalColor("_ZoneFillColorInfo"));
             }
             catch (Exception e)
             {

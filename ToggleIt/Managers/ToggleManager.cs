@@ -186,10 +186,10 @@ namespace ToggleIt.Managers
                             ToggleHelper.UpdateZoning(toggle.On);
                             break;
                         case 7:
-                            ToggleHelper.UpdateZoningGrids(toggle.On, (Color)DefaultManager.Instance.Get("ZoneEdgeColor"), (Color)DefaultManager.Instance.Get("ZoneEdgeColorInfo"), (Color)DefaultManager.Instance.Get("ZoneEdgeColorOccupiedColor"), (Color)DefaultManager.Instance.Get("ZoneEdgeColorOccupiedInfo"));
+                            ToggleHelper.UpdateZoningGrids(toggle.On);
                             break;
                         case 8:
-                            ToggleHelper.UpdateZoningColors(toggle.On, (Color)DefaultManager.Instance.Get("ZoneFillColor"), (Color)DefaultManager.Instance.Get("ZoneFillColorInfo"));
+                            ToggleHelper.UpdateZoningColors(toggle.On);
                             break;
                         case 9:
                             ToggleHelper.UpdateDistrictZones(toggle.On);
