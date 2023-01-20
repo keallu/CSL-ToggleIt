@@ -146,6 +146,146 @@ namespace ToggleIt
             {
                 key = 35;
             }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.A))
+            {
+                key = 36;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.B))
+            {
+                key = 37;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.C))
+            {
+                key = 38;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.D))
+            {
+                key = 39;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.E))
+            {
+                key = 40;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.F))
+            {
+                key = 41;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.G))
+            {
+                key = 42;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.H))
+            {
+                key = 43;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.I))
+            {
+                key = 44;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.J))
+            {
+                key = 45;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.K))
+            {
+                key = 46;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.L))
+            {
+                key = 47;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.M))
+            {
+                key = 48;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.N))
+            {
+                key = 49;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.O))
+            {
+                key = 50;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.P))
+            {
+                key = 51;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Q))
+            {
+                key = 52;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.R))
+            {
+                key = 53;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.S))
+            {
+                key = 54;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.T))
+            {
+                key = 55;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.U))
+            {
+                key = 56;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.V))
+            {
+                key = 57;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.W))
+            {
+                key = 58;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.X))
+            {
+                key = 59;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Y))
+            {
+                key = 60;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Z))
+            {
+                key = 61;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                key = 62;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                key = 63;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                key = 64;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Alpha4))
+            {
+                key = 65;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Alpha5))
+            {
+                key = 66;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Alpha6))
+            {
+                key = 67;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Alpha7))
+            {
+                key = 68;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Alpha8))
+            {
+                key = 69;
+            }
+            else if (Input.GetKey(KeyCode.LeftAlt) && Input.GetKeyDown(KeyCode.Alpha9))
+            {
+                key = 70;
+            }
             else
             {
                 key = 0;

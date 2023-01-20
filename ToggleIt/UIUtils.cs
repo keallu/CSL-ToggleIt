@@ -204,6 +204,7 @@ namespace ToggleIt
 
             dropDown.listBackground = "OptionsDropboxListbox";
             dropDown.listHeight = 200;
+            dropDown.listPosition = UIDropDown.PopupListPosition.Automatic;
 
             dropDown.itemHeight = 24;
             dropDown.itemHover = "ListItemHover";
@@ -221,6 +222,8 @@ namespace ToggleIt
             dropDown.itemPadding = new RectOffset(5, 5, 5, 5);
             dropDown.listPadding = new RectOffset(5, 5, 5, 5);
             dropDown.textFieldPadding = new RectOffset(10, 5, 10, 5);
+
+            dropDown.builtinKeyNavigation = true;
 
             dropDown.popupColor = new Color32(255, 255, 255, 255);
             dropDown.popupTextColor = new Color32(170, 170, 170, 255);
@@ -247,6 +250,8 @@ namespace ToggleIt
             checkBox.name = name;
             checkBox.height = 16f;
             checkBox.width = parent.width - 10f;
+
+            checkBox.builtinKeyNavigation = true;
 
             UISprite uncheckedSprite = checkBox.AddUIComponent<UISprite>();
             uncheckedSprite.atlas = atlas;
