@@ -18,7 +18,8 @@
             11,
             12,
             13,
-            14
+            14,
+            15
         };
 
         public static readonly string[] ToggleNames =
@@ -37,7 +38,8 @@
             "District Icons",
             "Tool Colors",
             "Tool Info",
-            "Tool Extra Info"
+            "Tool Extra Info",
+            "Dark Info Views"
         };
 
         public static readonly int[] Keymappings =

@@ -29,6 +29,8 @@ namespace ToggleIt
         {
             try
             {
+                DefaultManager.Instance.Initialize();
+
                 if (_controlPanel == null)
                 {
                     _controlPanel = GameObject.Find("ToggleItControlPanel")?.GetComponent<ControlPanel>();

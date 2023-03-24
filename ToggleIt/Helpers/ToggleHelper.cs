@@ -91,10 +91,10 @@ namespace ToggleIt.Helpers
         {
             try
             {
-                Shader.SetGlobalColor("_ZoneEdgeColor", enableZoningGrid ? new Color(0.203f, 0.289f, 0.322f, 1.000f) : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneEdgeColorInfo", enableZoningGrid ? new Color(0.098f, 0.098f, 0.098f, 1.000f) : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneEdgeColorOccupied", enableZoningGrid ? new Color(0.048f, 0.080f, 0.102f, 1.000f) : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneEdgeColorOccupiedInfo", enableZoningGrid ? new Color(0.098f, 0.098f, 0.098f, 0.275f) : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneEdgeColor", enableZoningGrid ? new Color(0.73f, 0.73f, 0.73f, 0.6f).linear : new Color(0f, 0f, 0f, 0f).linear);
+                Shader.SetGlobalColor("_ZoneEdgeColorInfo", enableZoningGrid ? new Color(0.73f, 0.73f, 0.73f, 1f).linear : new Color(0f, 0f, 0f, 0f).linear);
+                Shader.SetGlobalColor("_ZoneEdgeColorOccupied", enableZoningGrid ? new Color(0.26f, 0.26f, 0.26f, 0.8f).linear : new Color(0f, 0f, 0f, 0f).linear);
+                Shader.SetGlobalColor("_ZoneEdgeColorOccupiedInfo", enableZoningGrid ? new Color(0.35f, 0.35f, 0.35f, 0.7f).linear : new Color(0f, 0f, 0f, 0f).linear);
             }
             catch (Exception e)
             {
@@ -106,8 +106,8 @@ namespace ToggleIt.Helpers
         {
             try
             {
-                Shader.SetGlobalColor("_ZoneFillColor", enableZoningColor ? new Color(1.000f, 1.000f, 1.000f, 0.635f) : new Color(0f, 0f, 0f, 0f));
-                Shader.SetGlobalColor("_ZoneFillColorInfo", enableZoningColor ? new Color(1.000f, 1.000f, 1.000f, 0.000f) : new Color(0f, 0f, 0f, 0f));
+                Shader.SetGlobalColor("_ZoneFillColor", enableZoningColor ? new Color(1f, 1f, 1f, 0.75f).linear : new Color(0f, 0f, 0f, 0f).linear);
+                Shader.SetGlobalColor("_ZoneFillColorInfo", enableZoningColor ? new Color(1f, 1f, 1f, 0.75f).linear : new Color(0f, 0f, 0f, 0f).linear);
             }
             catch (Exception e)
             {
@@ -185,6 +185,18 @@ namespace ToggleIt.Helpers
             catch (Exception e)
             {
                 Debug.Log("[Toggle It!] ToggleHelper:UpdateDefaultToolColor -> Exception: " + e.Message);
+            }
+        }
+
+        public static void UpdateDarkInfoViews(bool enableDarkInfoViews)
+        {
+            try
+            {
+                Shader.SetGlobalColor("_InfoObjectColor", enableDarkInfoViews ? new Color(0.27f, 0.27f, 0.27f).linear : new Color(0.73f, 0.73f, 0.73f).linear);
+            }
+            catch (Exception e)
+            {
+                Debug.Log("[Toggle It!] ToggleHelper:UpdateDarkInfoViews -> Exception: " + e.Message);
             }
         }
     }

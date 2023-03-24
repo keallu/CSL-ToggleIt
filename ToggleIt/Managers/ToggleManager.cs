@@ -84,6 +84,9 @@ namespace ToggleIt.Managers
                     case 14:
                         on = (bool)DefaultManager.Instance.Get("ToolExtraInfo");
                         break;
+                    case 15:
+                        on = (bool)DefaultManager.Instance.Get("DarkInfoViews");
+                        break;
                 }
             }
             catch (Exception e)
@@ -206,6 +209,9 @@ namespace ToggleIt.Managers
                         case 13:
                             break;
                         case 14:
+                            break;
+                        case 15:
+                            ToggleHelper.UpdateDarkInfoViews(toggle.On);
                             break;
                         default:
                             break;

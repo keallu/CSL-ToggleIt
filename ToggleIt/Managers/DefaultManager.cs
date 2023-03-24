@@ -39,6 +39,7 @@ namespace ToggleIt.Managers
                 _defaults.Add("ToolColors", true);
                 _defaults.Add("ToolInfo", true);
                 _defaults.Add("ToolExtraInfo", true);
+                _defaults.Add("DarkInfoViews", false);
             }
             catch (Exception e)
             {
