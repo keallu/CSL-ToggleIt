@@ -2,6 +2,7 @@
 using ColossalFramework.UI;
 using System;
 using UnityEngine;
+using static InfoProperties;
 
 namespace ToggleIt.Helpers
 {
@@ -192,7 +193,7 @@ namespace ToggleIt.Helpers
         {
             try
             {
-                Shader.SetGlobalColor("_InfoObjectColor", enableDarkInfoViews ? new Color(0.27f, 0.27f, 0.27f).linear : new Color(0.73f, 0.73f, 0.73f).linear);
+                Shader.SetGlobalColor("_InfoObjectColor", enableDarkInfoViews ? new Color(0.27f, 0.27f, 0.27f, 0f).linear : new Color(0.73f, 0.73f, 0.73f, 0f).linear);
             }
             catch (Exception e)
             {
